@@ -1,0 +1,91 @@
+<!-- *Copyright(C),光年科技 
+*FileName:  pages/home/carpooling/carpooling.wxml
+*Author:  Emoji
+*Version:  0.0.2
+*Date:  2019.7.18 10：43
+*Description: -->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+				<view slot="backText">返回</view>
+				<view slot="content">发布拼车</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+				<form bindsubmit="carpooling_formSubmit">
+								<view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+												<view class="cu-form-group  solid-bottom">
+																<view class="action text-bold text-black text-lg">
+																				<text class="text-bold text-blue ">丨</text>
+																				拼车信息
+																</view>
+												</view>
+												<view class="cu-form-group  solid-bottom">
+																<view class="title">出发地</view>
+																<input type='text' name="carpooling_place" value='' placeholder="请输入出发地"></input>
+												</view>
+												<view class="cu-form-group">
+																<view class="title">目的地</view>
+																<input type='text' name="carpooling_toplace" value='' placeholder="请输入始发地"></input>
+												</view>
+												<view class="cu-form-group">
+																<view class="title">出发时间</view>
+																<picker mode="date" name="carpooling_start_date" value="{{start_date}}" start="2019-06-01" end="2022-09-01" bindchange="start_DateChange">
+																				<view class="picker ">{{start_date}}</view>
+																</picker>
+																<view class="cu-form-group  solid-bottom">
+																				<view class="title"></view>
+																				<picker mode="time" value="{{start_time}}" name="carpooling_start_time" start="00:01" end="23:59" bindchange="start_TimeChange">
+																								<view class="picker">{{start_time}}</view>
+																				</picker>
+																</view>
+												</view>
+												<view class="cu-form-group solid-bottom ">
+																<view class="title">截止时间</view>
+																<picker mode="date" value="{{end_date}}" name="carpooling_end_date" start="2019-06-01" end="2022-09-01" bindchange="end_DateChange">
+																				<view class="picker ">{{end_date}}</view>
+																</picker>
+																<view class="cu-form-group ">
+																				<view class="title"></view>
+																				<picker mode="time" value="{{end_time}}" name="carpooling_end_time" start="00:01" end="23:59" bindchange="end_TimeChange">
+																								<view class="picker">{{end_time}}</view>
+																				</picker>
+																</view>
+												</view>
+												<view class="cu-form-group solid-bottom">
+																<view class="action">备注</view>
+																<textarea name="carpooling_content" maxlength="50" bindinput="carpooling_textareaAInput" value="" bindblur="carpooling_bindTextAreaBlur" placeholder="可对拼车人数、信息详细说明  最多50个字" placeholder-class="padding text-sm"></textarea>
+												</view>
+								</view>
+								<view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+												<view class="cu-form-group  solid-bottom">
+																<view class="action text-bold text-black text-lg">
+																				<text class="text-bold text-blue ">丨</text>
+																				联系方式
+																</view>
+												</view>
+												<view class="cu-form-group  solid-bottom">
+																<view class="title">微信号</view>
+																<input type="text" name="carpooling_wechat" value="" placeholder=""></input>
+												</view>
+												<view class="cu-form-group  solid-bottom">
+																<view class="title">手机号码</view>
+																<input type="number" name="carpooling_phone" value='' placeholder=""></input>
+																<view class="cu-capsule radius">
+																				<view class="cu-tag bg-blue">+86</view>
+																				<view class="cu-tag line-blue">中国大陆</view>
+																</view>
+												</view>
+								</view>
+								<view class="cu-form-group2">
+												<checkbox-group name="carpooling_checkbox" checked="false" bindchange="carpooling_checkboxChange" class="line">
+																<checkbox class="round blue cb" value="{{isChecked}}" />
+																我已阅读并同意
+																<navigator url="/pages/user_protocol/user_protocol" class="text-blue" hover-class="navigator-hover">
+																				《新华帮帮用户协议》
+																</navigator>
+												</checkbox-group>
+								</view>
+								<button class="cu-btn block bg-blue lg " form-type="submit">
+												<text class="cuIcon-upload"></text>
+												发布
+								</button>
+				</form>
+</scroll-view>

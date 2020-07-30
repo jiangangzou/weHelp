@@ -1,0 +1,65 @@
+<!-- pages/home/help/help.wxml -->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">发布求助</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <form bindsubmit="formSubmit">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    求助信息
+                </view>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">标题</view>
+                <input type='text' name="help_text" value='' placeholder="求助事件（12字/必填）"></input>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">酬金</view>
+                <input type="number" name="help_price" value='' placeholder="请输入酬金"></input>
+                元
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title text-black">具体内容</view>
+            </view>
+            <view class="cu-form-group">
+                <textarea name="help_content" maxlength="200" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="#创客坊哪里有好吃的？（200字/必填）"></textarea>
+            </view>
+        </view>
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    联系方式
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">微信号</view>
+                <input type="text" name="help_wechat" value="" placeholder=""></input>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">手机号码</view>
+                <input type="number" name="help_phone" value='' placeholder=""></input>
+                <view class="cu-capsule radius">
+                    <view class="cu-tag bg-yellow">+86</view>
+                    <view class="cu-tag line-yellow">中国大陆</view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-form-group2">
+            <checkbox-group name="help_checkbox" bindchange="help_checkboxChange" class="line">
+                <checkbox class="round blue cb" value="true" checked="false" />
+                我已阅读并同意
+                <navigator url="/pages/user_protocol/user_protocol" class="text-yellow" hover-class="navigator-hover">
+                    《新华帮帮用户协议》
+                </navigator>
+            </checkbox-group>
+        </view>
+        <button class="cu-btn block bg-yellow lg " form-type="submit">
+            <text class="cuIcon-upload"></text>
+            发布
+        </button>
+    </form>
+</scroll-view>

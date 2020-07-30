@@ -1,0 +1,145 @@
+<!-- pages/home/express/express.wxml -->
+<cu-custom bgColor="bg-orange" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">跑腿代拿</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <form bindsubmit="exprees_formSubmit">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom ">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-orange ">丨</text>
+                    快递信息
+                </view>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">收件人</view>
+                <input type='text' name="express_name" value='' placeholder-class="text-sm" placeholder="请输入收件人"></input>
+                <view class="title">手机尾号</view>
+                <input type='number' name="express_phone_end" value='' placeholder-class="text-sm" placeholder="请输入手机尾号"></input>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">快递件数</view>
+                <picker name="express_count" bindchange="express_count_PickerChange" value="{{index1}}" range="{{express_count_picker}}">
+                    <view class="picker">{{index1?express_count_picker[index1]:'请选择1~5件'}}</view>
+                </picker>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">快递重量</view>
+                <picker name="express_weight" bindchange="express_weight_PickerChange" value="{{index2}}" range="{{express_weight_picker}}">
+                    <view class="picker">
+                        {{index2?express_weight_picker[index2]:'如有多件请按总重量填写'}}
+                    </view>
+                </picker>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">快递点</view>
+                <input type='text' name="express_point" value='' placeholder-class="text-sm" placeholder="如有多个地点请用逗号隔开"></input>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">酬金</view>
+                <input type="number" name="express_price" value='' placeholder-class="text-sm" placeholder="请输入酬金（必填）"></input>
+                元
+            </view>
+            <!-- <view class="cu-form-group bg-green">
+                <textarea maxlength="200" disabled="{{modalName!=null}}" bindinput="textareaAInput"
+                 placeholder="备注 可以描述一下快递的情况（200字/选填）"></textarea>
+            </view> -->
+            <view class="cu-form-group solid-bottom">
+                <textarea name="express_content" maxlength="-1" disabled="{{modalName!=null}}" bindinput="express_content_textareaAInput" placeholder="备注信息"></textarea>
+            </view>
+            <view class="cu-bar bg-white">
+                <view class="action">短信截图</view>
+                <view class="action">{{imgList.length}}/5</view>
+            </view>
+            <view class="cu-form-group">
+                <view class="grid col-4 grid-square flex-sub">
+                    <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                            <text class="cuIcon-close"></text>
+                        </view>
+                    </view>
+                    <view class="solids" bindtap="uploadimg" wx:if="{{imgList.length<5}}">
+                        <text class="cuIcon-cameraadd"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-orange ">丨</text>
+                    配送信息
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">所在栋数</view>
+                <picker name="express_dong" bindchange="express_dong_PickerChange" value="{{index3}}" range="{{express_dong_picker}}">
+                    <view class="picker">{{index3?express_dong_picker[index3]:'请选择东莞校区宿舍楼'}}</view>
+                </picker>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">详细楼层号</view>
+                <input type="text" name="express_room" value='' placeholder-class="text-sm" placeholder="请输入房间号（如南701）"></input>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">配送时间</view>
+                <picker name="express_start_date" mode="date" value="{{express_start_date}}" start="2019-06-01" end="2022-09-01" bindchange="express_start_DateChange">
+                    <view class="picker ">{{express_start_date}}</view>
+                </picker>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title"></view>
+                    <picker name="express_start_time" mode="time" value="{{express_start_time}}" start="00:01" end="23:59" bindchange="express_start_TimeChange">
+                        <view class="picker">{{express_start_time}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">截止时间</view>
+                <picker name="express_end_date" mode="date" value="{{express_end_date}}" start="2019-06-01" end="2022-09-01" bindchange="express_end_DateChange">
+                    <view class="picker ">{{express_end_date}}</view>
+                </picker>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title"></view>
+                    <picker name="express_end_time" mode="time" value="{{express_end_time}}" start="00:01" end="23:59" bindchange="express_end_TimeChange">
+                        <view class="picker">{{express_end_time}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-orange ">丨</text>
+                    联系方式
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">微信号</view>
+                <input type="text" name="express_wechat" value="" placeholder="请输入微信号（必填）"></input>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">手机号码</view>
+                <input type="number" name="express_phone" value='' placeholder=""></input>
+                <view class="cu-capsule radius">
+                    <view class="cu-tag bg-orange">+86</view>
+                    <view class="cu-tag line-orange">中国大陆</view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-form-group2">
+            <checkbox-group name="express_checkbox" bindchange="express_checkboxChange" class="line">
+                <checkbox class="round  orange cb" value="{{isChecked}}" checked="false" />
+                我已阅读并同意
+                <navigator url="/pages/user_protocol/user_protocol" class="text-orange" hover-class="navigator-hover">
+                    《新华帮帮用户协议》
+                </navigator>
+            </checkbox-group>
+        </view>
+        <button class="cu-btn block bg-orange lg " form-type="submit">
+            <text class="cuIcon-upload"></text>
+            发 布
+        </button>
+    </form>
+</scroll-view>

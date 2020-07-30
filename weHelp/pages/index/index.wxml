@@ -1,0 +1,61 @@
+
+
+<home wx:if="{{PageCur=='home'}}"></home>
+<!-- <service wx:if="{{PageCur=='service'}}"></service> -->
+<!-- <message wx:if="{{PageCur=='message'}}"></message> -->
+<users wx:if="{{PageCur=='users'}}"></users>
+
+<view class="cu-bar tabbar bg-white foot">
+
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class="{{PageCur=='home'?'text-green':'text-gray'}}">
+      <view class="cuIcon-home"></view> 首页
+    </view>
+  </view>
+
+  <!-- <view class="action" bindtap="NavChange" data-cur="service">
+    <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
+      <view class="iconfont Icon-school"></view> 校园发布
+    </view>
+  </view> -->
+
+
+
+     <view class="action text-gray add-action">
+      <button class="cu-btn cuIcon-add bg-green shadow" bindtap="showModal" data-target="bottomModal"></button>发布
+    </view>
+ <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="padding-xl">
+    
+        <view class='nav-list'>
+    <navigator hover-class='none' url="{{item.url}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key="id">
+    <view bindtap="check_session">
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+      </view>
+    </navigator>
+  </view>
+  <!-- 模态框返回按钮 -->
+        <button class="cu-btn icon cb cuIcon-close bg-green shadow " bindtap="hideModal" data-target="bottomModal"></button>
+    </view>
+
+  </view>
+</view>
+  <!-- </view> -->
+
+    <!-- <view class="action" bindtap="NavChange" data-cur="message">
+      <view class="{{PageCur=='message'?'text-green':'text-gray'}}">
+        <view class="cuIcon-similar"></view> 校园服务
+    </view>
+  </view> -->
+
+
+  <view class="action" bindtap="NavChange" data-cur="users">
+    <view class="{{PageCur=='users'?'text-green':'text-gray'}}">
+      <view class="cuIcon-my"></view> 我的
+    </view>
+  </view>
+
+</view>

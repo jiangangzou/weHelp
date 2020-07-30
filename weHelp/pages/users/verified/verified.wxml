@@ -1,0 +1,55 @@
+<!--pages/users/verified/verified.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">实名认证</view>
+</cu-custom>
+<form  bindsubmit="verified_formSubmit">
+	<view class="cu-form-group margin-top">
+		<view class="title">姓名</view>
+		<input type='text' name="verified_name" placeholder="请输入您的姓名(必填)" value=""></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">学号</view>
+		<input placeholder="请输入您的学号(必填)" type='number' name="verified_student_id" value=""></input>
+	</view>
+    <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			上传学生证照片
+		</view>
+		<view class="action">
+			{{imgList.length}}/4
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="verified_ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="verified_DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="verified_uploadimg" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+        <view class="padding  bg-white"> 
+            <text class="text-red text-sm light">注：如没有学生证可以上传身份证、校园卡、录取通知书\n提交后请等待人工审核，认证完成后不可更改</text>
+        </view>
+        <view class="cu-form-group2 ">
+        <checkbox-group name="carpooling_checkbox" checked="false" bindchange="verified_checkboxChange" class="line">
+            <checkbox class="round blue cb" value="{{isChecked}}" />
+            我已阅读并同意
+            <navigator url="/pages/user_protocol/user_protocol" class="text-yellow" hover-class="navigator-hover">
+                《新华帮帮用户协议》
+            </navigator>
+        </checkbox-group>
+    </view>
+    <button class="cu-btn block bg-yellow lg " form-type="submit">
+        <text class="cuIcon-upload"></text>
+        发布
+    </button>
+</form>
+<view class="text-sm text-center foot padding-top-xl">
+				<text class="text-grey padding-sm">东莞光年信息科技有限公司\nCopyright © 2019 All Rights Reserved</text>
+</view>

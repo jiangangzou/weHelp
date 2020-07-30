@@ -1,0 +1,369 @@
+<cu-custom bgColor="bg-yellow">
+  <view slot="content" class='text-lg text-black'>校园发布</view>
+</cu-custom>
+<view class="cu-card article no-card  ">
+  <scroll-view scroll-x class="bg-white nav section-fixed">
+    <view class="flex text-center ">
+      <view class="cu-item flex-sub {{0==TabCur0?'text-yellow cur':''}}" bindtap="tabSelect0" data-id="0">
+        最新
+      </view>
+      <view class="cu-item flex-sub {{1==TabCur0?'text-yellow cur':''}}" bindtap="tabSelect0" data-id="1">
+        闲置
+      </view>
+      <view class="cu-item flex-sub {{2==TabCur0?'text-yellow cur':''}}" bindtap="tabSelect0" data-id="2">
+        兼职
+      </view>
+      <view class="cu-item flex-sub {{3==TabCur0?'text-yellow cur':''}}" bindtap="tabSelect0" data-id="3">
+        求助
+      </view>
+      <view class="cu-item flex-sub {{4==TabCur0?'text-yellow cur':''}}" bindtap="tabSelect0" data-id="4">
+        寻物失物
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 闲置 -->
+<view wx:if="{{1==TabCur0}}">
+  <view class="cu-card article no-card scroll-x-top-tw ">
+    <scroll-view scroll-x class="bg-white nav section-fixed">
+      <view class="flex text-center ">
+        <view class="cu-item flex-sub {{0==TabCur1_1?'text-yellow cur':''}}" bindtap="tabSelect1_1" data-id="0">
+          电子产品
+        </view>
+        <view class="cu-item flex-sub {{1==TabCur1_1?'text-yellow cur':''}}" bindtap="tabSelect1_1" data-id="1">
+          衣服鞋子
+        </view>
+        <view class="cu-item flex-sub {{2==TabCur1_1?'text-yellow cur':''}}" bindtap="tabSelect1_1" data-id="2">
+          化妆品
+        </view>
+        <view class="cu-item flex-sub {{3==TabCur1_1?'text-yellow cur':''}}" bindtap="tabSelect1_1" data-id="3">
+          书籍资料
+        </view>
+        <view class="cu-item flex-sub {{4==TabCur1_1?'text-yellow cur':''}}" bindtap="tabSelect1_1" data-id="4">
+          代步工具
+        </view>
+        <view class="cu-item flex-sub {{5==TabCur1_1?'text-yellow cur':''}}" bindtap="tabSelect1_1" data-id="5">
+          其他
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 兼职 -->
+<view wx:if="{{2==TabCur0}}">
+  <view class="cu-card article no-card scroll-x-top-tw ">
+    <scroll-view scroll-x class="bg-white nav section-fixed">
+      <view class="flex text-center ">
+        <view class="cu-item flex-sub {{0==TabCur1_2?'text-yellow cur':''}}" bindtap="tabSelect1_2" data-id="0">
+          招兼职
+        </view>
+        <view class="cu-item flex-sub {{1==TabCur1_2?'text-yellow cur':''}}" bindtap="tabSelect1_2" data-id="1">
+          找兼职
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 寻物失物 -->
+<view wx:if="{{4==TabCur0}}">
+  <view class="cu-card article no-card scroll-x-top-tw ">
+    <scroll-view scroll-x class="bg-white nav section-fixed">
+      <view class="flex text-center ">
+        <view class="cu-item flex-sub {{0==TabCur1_4?'text-yellow cur':''}}" bindtap="tabSelect1_4" data-id="0">
+          寻物启事
+        </view>
+        <view class="cu-item flex-sub {{1==TabCur1_4?'text-yellow cur':''}}" bindtap="tabSelect1_4" data-id="1">
+          失物招领
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<scroll-view scroll-y="{{modalName==null}}" class="page scroll-y-top {{modalName!=null?'show':''}}">
+  <!-- js里面用List传参 //Emoji -->
+  <!-- tab0  js里面参数为List0 -->
+  <view class='brand1 ' wx:if="{{0==TabCur0}}">
+    <view wx:for="{{new_List0}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab1  js里面参数为List1_0 -->
+  <!-- 闲置——电子产品 -->
+  <view class='brand1' wx:if="{{1==TabCur0  &&  0==TabCur1_1}}">
+    <view wx:for="{{xianzhi_List1_0}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab2  js里面参数为List1_1 -->
+  <!-- 闲置——衣服鞋子 -->
+  <view class='brand1' wx:if="{{1==TabCur0  && 1==TabCur1_1}}">
+    <view wx:for="{{xianzhi_List1_1}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab3  js里面参数为List1_2 -->
+  <!-- 闲置——化妆品 -->
+  <view class='brand1' wx:if="{{1==TabCur0  &&  2==TabCur1_1}}">
+    <view wx:for="{{xianzhi_List1_2}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab4  js里面参数为List1_3 -->
+  <!-- 闲置——书籍资料 -->
+  <view class='brand1' wx:if="{{1==TabCur0  &&  3==TabCur1_1}}">
+    <view wx:for="{{xianzhi_List1_3}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab5  js里面参数为List1_4 -->
+  <!-- 闲置——代步工具 -->
+  <view class='brand1' wx:if="{{1==TabCur0  &&  4==TabCur1_1}}">
+    <view wx:for="{{xianzhi_List1_4}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab5  js里面参数为List1_5 -->
+  <!-- 闲置——其他 -->
+  <view class='brand1' wx:if="{{1==TabCur0  &&  5==TabCur1_1}}">
+    <view wx:for="{{xianzhi_List1_5}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab6  js里面参数为List2_0 -->
+  <!-- 兼职——找兼职 -->
+  <view class='brand1' wx:if="{{2==TabCur0  &&  0==TabCur1_2}}">
+    <view wx:for="{{part_time_job_List2_0}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab7  js里面参数为List2_1 -->
+  <!-- 兼职——招兼职 -->
+  <view class='brand1' wx:if="{{2==TabCur0  &&  1==TabCur1_2}}">
+    <view wx:for="{{part_time_job_List2_1}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab8  js里面参数为List3 -->
+  <!-- 求助 -->
+  <view class='brand1' wx:if="{{3==TabCur0}}">
+    <view wx:for="{{help_List3}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+              <view class="text-right text-price text-red price-view-width">{{item.price}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab9  js里面参数为List4_0 -->
+  <!-- 寻物失物-寻物启事 -->
+  <view class='brand1' wx:if="{{4==TabCur0  &&  0==TabCur1_4}}">
+    <view wx:for="{{lost_found_List4_0}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- tab10  js里面参数为List4_1 -->
+  <!-- 寻物失物-失物招领 -->
+  <view class='brand1' wx:if="{{4==TabCur0  &&  1==TabCur1_4}}">
+    <view wx:for="{{lost_found_List4_1}}" wx:key class="">
+      <navigator url="{{item.Url}}?detail_id={{item.id}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+          <view class="cu-item arrow">
+            <view class="action text-bold text-black text-lg text-row">
+              <view class="text-center cuIcon-title-width">
+                <text class="cuIcon-title text-orange" />
+              </view>
+              <view class="text-view-width">{{item.text}}</view>
+            </view>
+          </view>
+          <view class="cu-item">
+            <view class="content item-padding-height">
+              <text class="text-grey">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>

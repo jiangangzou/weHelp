@@ -1,0 +1,61 @@
+<!--pages/service/part-time-job_detail/part-time-job_detail.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">兼职信息</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-item ">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    兼职信息
+                </view>
+            </view>
+    <view wx:for="{{part_time_job_detail}}" wx:for-item="p" wx:key="part_time_job_id" name="part_time_job_detail">
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">类 型:</text>
+                        <text class="text-df">{{p.part_time_job_type}}</text>
+                </view>
+            </view>
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">标 题:</text>
+                        <text class="text-df">{{p.part_time_job_text}}</text>
+                </view>
+            </view>
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">薪 资:</text>
+                        <text class="text-price text-red text-df text-bold">{{p.part_time_job_price}}/小时</text>
+                </view>
+            </view>
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">具体内容:</text>
+                        <text class="text-df padding">{{p.part_time_job_content}}</text>
+                </view>
+            </view>
+
+
+  <view class="cu-bar bg-white tabbar border foot">
+      <button class="action" open-type="contact">
+          <view class="cuIcon-service text-green">
+          </view>客服
+      </button>
+        <view class="bg-olive submit" bindtap="CopyWechat" data-wechat="{{p.part_time_job_wechat}}" >微信联系</view>
+        <view class="bg-yellow submit"  bindtap="calling"  data-phone="{{p.part_time_job_phone}}">手机联系</view>
+        </view>
+    </view>
+</view>
+<!-- 顶部文字 -->
+        <view class=' padding  margin-bottom-xl'>
+            <view class="text-sm text-center  margin-bottom-xl">
+                <text class="text-grey padding-sm ">© 2019 邻里帮</text>
+            </view>
+        </view>
+</scroll-view>

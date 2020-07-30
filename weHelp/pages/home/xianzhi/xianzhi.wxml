@@ -1,0 +1,91 @@
+<!-- pages/home/xianzhi/xianzhi.wxml -->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">发布任务</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <form bindsubmit="xianzhi_formSubmit">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group  solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    任务信息
+                </view>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">标题</view>
+                <input type='text' name="xianzhi_text" value='' placeholder="请输入需要发布任务的标题"></input>
+            </view>
+            <!-- <view class="cu-form-group  solid-bottom">
+                <view class="title">类型</view>
+                <picker bindchange="xianzhi_PickerChange" name="xianzhi_type" value="{{index}}" range="{{xianzhi_picker}}">
+                    <view class="picker">{{index?xianzhi_picker[index]:'请选择物品类别'}}</view>
+                </picker>
+            </view> -->
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">价格</view>
+                <input type="number" name="xianzhi_price" value='' placeholder="请输入该任务价格"></input>
+                元
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <textarea maxlength="200" name="xianzhi_content" disabled="{{modalName!=null}}" value="" bindinput="xianzhi_textareaAInput" placeholder="大致描述一下该任务的情况（200字/必填）"></textarea>
+            </view>
+            <view class="cu-bar bg-white">
+                <view class="action">图片上传</view>
+                <view class="action">{{imgList.length}}/4</view>
+            </view>
+            <view class="cu-form-group">
+                <view class="grid col-4 grid-square flex-sub">
+                    <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="xianzhi_ViewImage" data-url="{{imgList[index]}}">
+                        <image src='{{imgList[index]}}' name="xianzhi_img" mode='aspectFill'></image>
+                        <view class="cu-tag bg-red" catchtap="xianzhi_DelImg" data-index="{{index}}">
+                            <text class="cuIcon-close"></text>
+                        </view>
+                    </view>
+                    <view class="solids" bindtap="xianzhi_uploadimg" wx:if="{{imgList.length<4}}">
+                        <text class="cuIcon-cameraadd"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group  solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    截至时间
+                </view>
+            </view>
+            <view class="cu-form-group">
+				<view class="title">时间选择</view>
+				<picker mode="time" :value="time" start="09:01" end="21:01" bindchange="TimeChange">
+					<view class="picker">
+						{{time}}
+					</view>
+				</picker>
+			</view>
+			<view class="cu-form-group">
+				<view class="title">日期选择</view>
+				<picker mode="date" :value="date" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+					<view class="picker">
+						{{date}}
+					</view>
+				</picker>
+			</view>
+        </view>
+        <view class="cu-form-group2">
+            <checkbox-group bindchange="xianzhi_checkboxChange" name="xianzhi_checkbox" class="line">
+                <checkbox class="round yellow cb" checked="false" value="{{isChecked}}" />
+                我已阅读并同意
+                <navigator url="/pages/user_protocol/user_protocol" class="text-yellow" hover-class="navigator-hover">
+                    《邻里帮用户协议》
+                </navigator>
+            </checkbox-group>
+        </view>
+        <view class="">
+            <button class="cu-btn block bg-yellow lg " form-type="submit">
+                <text class="cuIcon-upload"></text>
+                发布
+            </button>
+        </view>
+    </form>
+</scroll-view>

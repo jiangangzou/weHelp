@@ -1,0 +1,130 @@
+<!-- pages/home/express_detail/express_detail.wxml -->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">快递代拿</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+        <view class="cu-form-group  solid-bottom">
+            <view class="action text-bold text-black text-lg">
+                <text class="text-bold text-yellow ">丨</text>
+                快递信息
+            </view>
+        </view>
+        <view wx:for="{{express_detailList}}" wx:for-item="e" wx:key="express_id" name="express_detail">
+            <view class="cu-form-group  solid-bottom">
+                <view class="action">
+                    <text class="title text-black padding-sm">快 递 点：</text>
+                    <text class="text-df  text-bold">{{e.express_point}}</text>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="action">
+                    <text class="title text-black padding-sm">快递件数:</text>
+                    <text class="text-df  text-bold">{{e.express_count}}</text>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="action">
+                    <text class="title text-black padding-sm">快递重量：</text>
+                    <text class="text-df  text-bold">{{e.express_weight}}</text>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom ">
+                <view class="action">
+                    <text class="title text-black padding-sm">酬  金:</text>
+                    <text class="text-price text-df text-red text-bold">{{e.express_price}}</text>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom ">
+                <view class="action">
+                    <text class="title text-black padding-sm">配送地址:</text>
+                    <text class="text-df padding  text-bold">
+                        {{e.express_dong}}{{e.express_room}}
+                    </text>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="action">
+                    <text class="title text-black padding-sm">配送时间:</text>
+                    <text class="text-df padding  text-bold">
+                        {{e.express_start_date}}  {{e.express_start_time}}
+                    </text>
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="action">
+                    <text class="title text-black padding-sm">截止时间:</text>
+                    <text class="text-df padding  text-bold">
+                        {{e.express_end_date}}  {{e.express_end_time}}
+                    </text>
+                </view>
+            </view>
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-black padding-sm">备 注:</text>
+                    <text class="text-df padding">{{e.express_content}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="cu-bar bg-white tabbar border foot">
+    <button class="action" open-type="contact">
+        <view class="cuIcon-service text-green"></view>
+        客服
+    </button>
+    <view class="bg-yellow submit" bindtap="showModal" data-target="DialogModal1">我要接单</view>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">接单信息</view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+            <view class="cu-list menu sm-border solid-bottom card-menu ">
+                <view wx:for="{{express_detailList}}" wx:for-item="e" wx:key="express_id" name="express_detail">
+                    <view class="cu-bar solid-bottom">
+                        <view class="action">
+                            <text class=" text-black padding-sm">收件人：</text>
+                            <text class="text-df ">{{e.express_name}}</text>
+                        </view>
+                    </view>
+                    <view class="cu-bar solid-bottom">
+                        <view class="action">
+                            <text class="text-black padding-sm">手机尾号：</text>
+                            <text class="text-df">{{e.express_phone_end}}</text>
+                        </view>
+                    </view>
+                    <view class="cu-bar solid-bottom">
+                        <view class="action">
+                            <text class="text-black padding-sm">短信截图：</text>
+                        </view>
+                    </view>
+                    <view class="cu-form-group">
+                        <view class="flex-sub">
+                            <view class="" wx:for="{{imgList}}" wx:key="" bindtap="ViewImage" data-url="{{item.url}}">
+                                <image src='{{item.url}}' mode='widthFix' class="response"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="cu-bar bg-white justify-center">
+            <view class="action">
+                <view wx:for="{{express_detailList}}" wx:for-item="e" wx:key="express_id" name="express_detail">
+                    <button class="cu-btn line-green text-green" bindtap="CopyWechat" data-wechat="{{e.express_wechat}}">
+                        微信联系
+                    </button>
+                    <button class="cu-btn bg-green margin-left" bindtap="calling" data-phone="{{e.express_phone}}">
+                        手机联系
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

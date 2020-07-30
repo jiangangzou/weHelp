@@ -1,0 +1,64 @@
+<!--pages/home/showexpress/showexpress.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">快递代拿</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}} ">
+  <view class='brand1'>
+    <view wx:for="{{showexpressList}}" wx:for-item="e" wx:key="express_id" name="showexpress">
+    <navigator url="/pages/home/express_detail/express_detail?express_id={{e.express_id}}">
+      <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+        <view class="cu-item arrow">
+          <view class="action text-bold text-black text-lg text-row">
+            <view class="text-center cuIcon-title-width">
+              <text class="cuIcon-title text-orange"></text>
+            </view>
+            <view class="text-view-width">
+              {{e.express_dong}}{{e.express_room}}
+            </view>
+            <view class="text-right text-price text-red price-view-width">{{e.express_price}}</view>
+          </view>
+        </view>
+
+        <view class="content padding-xs bg-white padding-left-lg padding-top-sm">
+          <view class="content text-black">快递点：
+            <text class="text-grey">{{e.express_point}}</text>
+          </view>
+        </view>
+
+          <view class="content padding-xs bg-white  padding-left-lg">
+          <view class="content  text-black">快递件数：
+            <text class="text-grey">{{e.express_count}}</text>
+          </view>
+        </view>
+
+          <view class="content padding-xs bg-white padding-left-lg">
+            <view class="content  text-black">配送时间：
+              <text class="text-grey">{{e.express_start_date}}  {{e.express_start_time}} </text>
+            </view>
+          </view>
+
+          <view class="content padding-xs bg-white  padding-left-lg">
+            <view class="content  text-black">备注：
+              <text class="text-grey">{{e.express_content}}</text>
+            </view>
+          </view>
+
+          <view class="cu-item">
+            <view class="content item-padding-height text-center">
+              <text class="text-sm text-orange">— 该发布在{{e.express_end_date}} {{e.express_end_time}}后失效 —</text>
+            </view>
+          </view>
+
+      </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 底部文字 -->
+    <view class=' padding'>
+    <view class="solid-bottom text-sm text-center">
+      <text class="text-grey padding-sm ">© 2019 邻里帮</text>
+    </view>
+  </view>
+
+  </scroll-view>

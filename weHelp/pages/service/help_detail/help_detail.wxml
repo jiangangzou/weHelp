@@ -1,0 +1,55 @@
+<!--pages/service/help_detail/help_detail.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">求助信息</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-item ">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    求助信息
+                </view>
+            </view>
+    <view wx:for="{{help_detail}}" wx:for-item="h" wx:key="help_id" name="help_detail">
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">标 题:</text>
+                        <text class="text-df">{{h.help_text}}</text>
+                </view>
+            </view>
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-yellow text-bold padding">酬 金:</text>
+                        <text class="text-price text-red text-df text-bold">{{h.help_price}}</text>
+                </view>
+            </view>
+
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">具体内容:</text>
+                        <text class="text-df padding">{{h.help_content}}</text>
+                </view>
+            </view>
+
+
+  <view class="cu-bar bg-white tabbar border foot">
+      <button class="action" open-type="contact">
+          <view class="cuIcon-service text-green">
+          </view>客服
+      </button>
+      <view ></view>
+        <view class="bg-olive submit" bindtap="CopyWechat" data-wechat="{{h.help_wechat}}" >微信联系</view>
+        <view class="bg-yellow submit"  bindtap="calling"  data-phone="{{h.help_phone}}">手机联系</view>
+        </view>
+    </view>
+</view>
+<!-- 顶部文字 -->
+        <view class=' padding  margin-bottom-xl'>
+            <view class="text-sm text-center  margin-bottom-xl">
+                <text class="text-grey padding-sm ">© 2019 邻里帮</text>
+            </view>
+        </view>
+</scroll-view>

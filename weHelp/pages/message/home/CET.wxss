@@ -1,0 +1,4 @@
+/* pages/message/home/CET.wxss */
+.link{
+    text-decoration:underline;
+}

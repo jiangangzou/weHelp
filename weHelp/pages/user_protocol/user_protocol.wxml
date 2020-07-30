@@ -1,0 +1,41 @@
+<!--pages/user_protocol/user_protocol.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">用户协议</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}} ">
+<view class="flex-sub padding bg-white">
+      <view class="solid-bottom text-center text-lg padding">
+          <text class="text-black text-bold">《新华帮帮用户服务协议》</text>
+      </view>
+      <view class="text-sm text-gray">新华帮帮平台依据以下条件和条款为您提供所享有的服务，请仔细阅读并遵守。</view>
+      <view class="text-df  text-grey">
+
+      <view wx:for="{{textList}}" wx:key="">
+             <view class='margin-top-sm text-black '>{{item.text}}</view>
+            <view class='margin-top-sm '>{{item.content0}}</view>
+            <view class='margin-top-sm '>{{item.content1}}</view>
+            <view class='margin-top-sm '>{{item.content2}}</view>
+            <view class='margin-top-sm '>{{item.content3}}</view>
+            <view class='margin-top-sm '>{{item.content4}}</view>
+            <view class='margin-top-sm '>{{item.content5}}</view>
+            <view class='margin-top-sm '>{{item.content6}}</view>
+            <view class='margin-top-sm '>{{item.content9}}</view>
+            <view class='margin-top-sm '>{{item.content10}}</view>
+            <view class='margin-top-sm '>{{item.content11}}</view>
+            <view class='margin-top-sm '>{{item.content12}}</view>
+            <view class='margin-top-sm '>{{item.content13}}</view>
+    </view>
+
+
+
+
+
+
+
+      </view>
+    </view>
+<view class="text-sm text-center foot padding-top-xl">
+    <text class="text-grey padding-sm">东莞光年信息科技有限公司\nCopyright © 2019 All Rights Reserved</text>
+</view>
+</scroll-view>

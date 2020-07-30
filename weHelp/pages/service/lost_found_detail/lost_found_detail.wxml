@@ -1,0 +1,65 @@
+<!-- pages/service/lost_found_detail/lost_found_detail.wxml -->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">寻物失物信息</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+        <view class="cu-item ">
+            <view class="action text-bold text-black text-lg">
+                <text class="text-bold text-yellow ">丨</text>
+                物品信息
+            </view>
+        </view>
+        <view wx:for="{{lost_found_detail}}" wx:for-item="l" wx:key="lost_found_id" name="lost_found_detail">
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">类 型:</text>
+                    <text class="text-df">{{l.lost_found_type}}</text>
+                </view>
+            </view>
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">标 题:</text>
+                    <text class="text-df">{{l.lost_found_text}}</text>
+                </view>
+            </view>
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">具体内容:</text>
+                    <text class="text-df padding">{{l.lost_found_content}}</text>
+                </view>
+            </view>
+            <view class="cu-bar bg-white solid-bottom">
+                <view class="action">
+                    <text class="title text-bold text-yellow padding">图 片:</text>
+                </view>
+            </view>
+            <view class="cu-form-group">
+                <view class="flex-sub">
+                    <view class="bg-img" wx:for="{{imgList}}" wx:key="" bindtap="ViewImage" data-url="{{item.url}}">
+                        <image src='{{item.url}}' mode='widthFix' class="response"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-bar bg-white tabbar border foot">
+                <button class="action" open-type="contact">
+                    <view class="cuIcon-service text-green"></view>
+                    客服
+                </button>
+                <view class="bg-olive submit" bindtap="CopyWechat" data-wechat="{{l.lost_found_wechat}}">
+                    微信联系
+                </view>
+                <view class="bg-yellow submit" bindtap="calling" data-phone="{{l.lost_found_phone}}">
+                    手机联系
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 顶部文字 -->
+    <view class=' padding  margin-bottom-xl'>
+        <view class="text-sm text-center  margin-bottom-xl">
+            <text class="text-grey padding-sm ">© 2019 新华邻里帮</text>
+        </view>
+    </view>
+</scroll-view>

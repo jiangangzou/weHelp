@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home/home",
+    "pages/service/home/home",
+    "pages/message/home/home",
+    "pages/users/home/home",
+    "pages/index/webview/swiper0/swiper0",
+    "pages/index/webview/swiper3/swiper3",
+    "pages/index/webview/swiper4/swiper4",
+    "pages/index/webview/swiper1/swiper1",
+    "pages/index/webview/swiper2/swiper2",
+    "pages/index/webview/swiper5/swiper5",
+    "pages/home/maintenance/maintenance",
+    "pages/home/carpooling/carpooling",
+    "pages/home/showcarpooling/showcarpooling",
+    "pages/home/resources/resources",
+    "pages/home/express/express",
+    "pages/home/xianzhi/xianzhi",
+    "pages/home/lost_found/lost_found",
+    "pages/home/part-time job/part_time_job",
+    "pages/home/help/help",
+    "pages/home/showexpress/showexpress",
+    "pages/home/entertainment/entertainment",
+    "pages/user_protocol/user_protocol",
+    "pages/service/xianzhi_detail/xianzhi_detail",
+    "pages/service/help_detail/help_detail",
+    "pages/service/lost_found_detail/lost_found_detail",
+    "pages/service/part-time-job_detail/part-time-job_detail",
+    "pages/home/express_detail/express_detail",
+    "pages/message/home/tel",
+    "pages/message/home/calendar",
+    "pages/message/home/wb",
+    "pages/message/home/CET",
+    "pages/home/entertainment_detail/entertainment_detail0",
+    "pages/users/about/about",
+    "pages/users/my_release/my_release",
+    "pages/users/verified/verified",
+    "pages/users/my_order/my_order",
+    "pages/home/carpooling_detail/carpooling_detail",
+    "pages/message/webview/website",
+    "pages/message/home/network",
+    "pages/home/entertainment_detail/entertainment_detail1",
+    "pages/home/entertainment_detail/entertainment_detail2",
+    "pages/home/entertainment_detail/entertainment_detail3",
+    "pages/users/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "邻里帮",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxc72a0ed41fd1ddaa"
+  ]
+}

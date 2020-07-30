@@ -1,0 +1,42 @@
+/* pages/ service/home/home.wxss */
+.userinfo-avatar{
+  overflow:hidden;
+  display: block;
+}
+
+.section-fixed {
+  position: fixed;
+  z-index: 10000;
+}
+
+.scroll-y-top{
+  margin-top: 90rpx;
+  margin-bottom: 90px;
+}
+
+.scroll-x-top-tw{
+  margin-top: 91rpx;
+}
+
+.text-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text-view-width{
+  width: 400rpx;
+}
+
+.price-view-width{
+  width: 140rpx;
+}
+
+.item-padding-height{
+  padding: 20rpx 0px;
+}
+
+.cuIcon-title-width{
+  width: 25px;
+}
+

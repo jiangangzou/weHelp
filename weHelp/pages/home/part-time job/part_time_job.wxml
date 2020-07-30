@@ -1,0 +1,75 @@
+<!--pages/home/part-time job/part_time_job.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">发布家政</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <form bindsubmit="part_time_job_formSubmit">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group  solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    家政信息
+                </view>
+            </view>
+
+            <view class="cu-form-group solid_bottom">
+                <view class="title">类型</view>
+                <picker name="part_time_job_type" bindchange="part_time_job_PickerChange" value="{{index}}" range="{{part_time_job_picker}}">
+                    <view class="picker">{{index?part_time_job_picker[index]:'请选择发布信息类型'}}</view>
+                </picker>
+            </view>
+
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">标题</view>
+                <input type='text' name="part_time_job_text" value='' placeholder="岗位性质类型（12字/必填）"></input>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">薪资</view>
+                <input type="number" name="part_time_job_price" value='' placeholder="请输入薪资情况"></input>/小时
+            </view>
+            <view class="cu-bar bg-white">
+                <view class="title action">具体内容</view>
+            </view>
+            <view class="cu-form-group">
+                <textarea maxlength="200" name="part_time_job_content" disabled="{{modalName!=null}}" 
+                bindinput="part_time_job_textareaAInput" value="" placeholder="时间、地点、就业岗位要求（200字/必填）"></textarea>
+            </view>
+
+
+        </view>
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group  solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-green">丨</text>
+                    联系方式
+                </view>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">微信号</view>
+                <input type="text" name="part_time_job_wechat" value="" placeholder=""></input>
+            </view>
+            <view class="cu-form-group  solid-bottom">
+                <view class="title">手机号码</view>
+                <input type="number" name="part_time_job_phone" value='' placeholder=""></input>
+                <view class="cu-capsule radius">
+                    <view class="cu-tag bg-yellow">+86</view>
+                    <view class="cu-tag line-yellow">中国大陆</view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-form-group2">
+            <checkbox-group bindchange="part_time_job_checkboxChange" class="line">
+                <checkbox name="part_time_job_checkbox" value="{{isChecked}}" class="round  yellow cb" checked="false" />
+                我已阅读并同意
+                <navigator url="/pages/user_protocol/user_protocol" class="text-yellow" hover-class="navigator-hover">
+                    《新华帮帮用户协议》
+                </navigator>
+            </checkbox-group>
+        </view>
+        <button class="cu-btn block bg-yellow lg " form-type="submit">
+        <text class="cuIcon-upload"></text>
+        发布
+    </button>
+    </form>
+</scroll-view>

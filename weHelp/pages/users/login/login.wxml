@@ -1,0 +1,27 @@
+<!-- pages/users/login/login.wxml -->
+<cu-custom class="text-black" bgColor="bg-white">
+    <view slot="content">用户授权</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="bg-white page {{modalName!=null?'show':''}}">
+    <view class="bg-white padding-lr ">
+        <view class="padding-xs flex align-center">
+            <view class="flex-sub text-center">
+                <view class="solid-bottom text-xsl padding">
+                    <view class="bg-img" style="background-image: url('https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/bg.png?sign=465e87737c96ed45c476b08c868341b1&t=1568267727');height:200px;"></view>
+                </view>
+                <view class="text-left text-black margin-top ">该程序获得以下授权：</view>
+                <view class=" padding text-left text-sm text-gray">·获得您的公开信息（昵称和头像等）</view>
+                <view class=" bg-white  flex margin-top">
+                    <view class="flex-sub  text-row">
+                    <navigator url="/pages/index/index">
+                        <button class="cu-btn  flex-sub line-black text-black  margin-xl lg">
+                            暂不授权
+                        </button>
+                        </navigator>
+                        <button class="cu-btn  flex-sub bg-yellow  margin-xl lg"  bindtap="bindGetUserInfo" open-type="getUserInfo">确定授权</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

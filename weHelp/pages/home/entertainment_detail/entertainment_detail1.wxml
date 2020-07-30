@@ -1,0 +1,217 @@
+<!--pages/home/entertainment_detail/entertainment_detail.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">商家详情</view>
+</cu-custom>
+<swiper class="screen-swiper square-dot  shadow " indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#fec432">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+        <image src="{{imgCDN}}{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+</swiper>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-lg  text-black text-bold '>
+    <text class="text-bold text-orange ">丨</text>
+        啊一柠檬茶强势入驻麻涌
+    <text class="text-bold text-orange ">丨</text>
+    </view>
+        <view class='text-content margin-top-sm padding-bottom-lg'>
+                2015年一个生意失败的小伙子，觉得市面上的柠檬茶都不满意，钟情于柠檬茶的他立誓要把它做好，经过无数次的试茶，筛选柠檬，比例调试，在9月6日诞生第一杯全新口感柠檬茶，由于没有创业资金，只能踩三轮车在新塘牛仔城摆街边，经过无数的考验，坚持，专一，走到了现在全国100余家门店：这人就是我（啊一柠檬茶）
+        </view>
+
+        <image src="{{imgCDN}}{{img0}}" mode='widthFix' class='response margin-top' />
+        
+        <view class="margin-top-sm text-center">
+            <text>
+              用味蕾体验过许多城市的美食\n
+              要说有哪一种能沁人心脾 令人回味\n
+              那还属啊一柠檬茶\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img1}}" mode='widthFix' class='response margin-top' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                从第一辆“啊一柠檬车”\n
+                到珠江新城店\n
+                啊一始终只用\n
+                健康绿色原材料\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img2}}" mode='widthFix' class='response margin-top  padding-bottom-lg' />
+
+        <view class='text-content margin-top-sm padding-bottom-lg'>
+            每天新鲜到店的香水柠檬选取没有籽的柠檬制作，清洗柠檬也绝不马虎。再用切片机。至少捶打20下，将柠檬汁充分榨出，再放冰放茶。手摇柠檬让茶与柠檬两者的清香发挥出来。
+        </view>
+
+        <video id="myVideo" src="{{imgCDN}}shangjia/ayiningmengcha/4.mp4"   class='response'  controls></video>
+
+        <view class="margin-top-sm text-center">
+            <text>
+                坚持不做隔夜茶\n
+                只用新鲜的芒果 新鲜的香橙\n
+                新鲜采摘的柠檬...\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img3}}" mode='widthFix' class='response margin-top' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                在江门\n
+                啊一拥有属于自己的600亩柠檬园\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img4}}" mode='widthFix' class='response margin-top  padding-bottom-lg' />   
+
+        <view class="margin-top-sm text-center">
+            <text>
+                每天把新鲜柠檬运到门店\n
+                我们严格执行\n
+                『柠檬从树上采摘，到做成柠檬茶不超过72个小时』\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img5}}" mode='widthFix' class='response margin-top  padding-bottom-lg' />
+        <image src="{{imgCDN}}{{img6}}" mode='widthFix' class='response margin-top  padding-bottom-lg' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                为夏日沉闷的心\n
+                刮起柠檬清香的风儿\n
+                再下一场香怡人的雨\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img1}}" mode='widthFix' class='response margin-top  padding-bottom-lg' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                自在感受与茶\n
+                相互碰撞与交融的神奇反应\n
+                清甜中无端跳脱出几分野性\n
+                为夏日增添一抹惬意的清凉\n
+            </text>
+        </view>
+
+        <view class="action text-center text-bold text-blue text-lg  margin-top-xl">
+            <text class="text-bold text-blue ">丨</text>
+            蓝莓多多
+            <text class="text-bold text-blue ">丨</text>
+        </view>
+
+        <image src="{{imgCDN}}{{img7}}" mode='widthFix' class='response margin-top' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                诱人的蓝莓\n
+                甜酸适口，且具有香爽宜人的香气\n
+                控制得恰到好处的酸甜度\n
+                很  正\n
+            </text>
+        </view>
+
+        <view class="action text-center text-bold text-pink text-lg  margin-top-xl">
+            <text class="text-bold text-pink ">丨</text>
+            芝士双莓
+            <text class="text-bold text-pink ">丨</text>
+        </view>
+
+        <image src="{{imgCDN}}{{img8}}" mode='widthFix' class='response margin-top ' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                草莓撞蓝莓\n
+                高颜值饮品\n
+                入口的感觉  无可挑剔\n
+            </text>
+        </view>
+
+        <view class="action text-center text-bold text-green text-lg  margin-top-xl">
+            <text class="text-bold text-green ">丨</text>
+                        芝士牛牛
+            <text class="text-bold text-green ">丨</text>
+        </view>
+
+        <image src="{{imgCDN}}{{img9}}" mode='widthFix' class='response margin-top ' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                牛油果\n
+                果肉肉质如乳酪般滑顺\n
+                完美的配合  而又营养多多\n
+            </text>
+        </view>
+
+        <view class="action text-center text-bold text-pink text-lg  margin-top-xl">
+            <text class="text-bold text-pink ">丨</text>
+                        芝士草莓
+            <text class="text-bold text-pink ">丨</text>
+        </view>
+
+        <image src="{{imgCDN}}{{img10}}" mode='widthFix' class='response margin-top ' />
+
+        <view class="margin-top-sm text-center">
+            <text>
+                丝丝的草莓酸味\n
+                其妙不可\n
+            </text>
+        </view>
+
+        <view class="action text-center text-bold text-red text-lg  margin-top-xl">
+            <text class="text-bold text-red ">丨</text>
+                        - The one 果茶 –
+            <text class="text-bold text-red ">丨</text>
+        </view>
+        <image src="{{imgCDN}}{{img11}}" mode='widthFix' class='response margin-top ' />
+        <view class="margin-top-sm text-center">
+            <text>
+                在来去匆匆的你我\n
+                闲暇的时候\n
+                不妨约一杯水果茶\n
+                百分百新鲜水果制作\n
+                满杯水果  清甜微香\n
+            </text>
+        </view>
+
+        <view class="margin-top-sm text-center">
+            <text>
+                开学后\n
+                与同学、朋友相约啊一\n
+                喝几口啊一柠檬茶\n
+                敞开心扉\n
+
+                畅聊内心世界\n
+                与美丽的华阳湖畔相映衬\n
+                独有一番滋味\n
+            </text>
+        </view>
+
+        <image src="{{imgCDN}}{{img12}}" mode='widthFix' class='response margin-top ' />
+        <image src="{{imgCDN}}{{img13}}" mode='widthFix' class='response margin-top  padding-bottom-xl' />
+
+    <view class='text-center  text-lg  text-orange text-bold '>
+        <text class="text-bold text-orange ">丨</text>
+                商家信息
+        <text class="text-bold text-orange ">丨</text>
+    </view>
+        <view class="margin-top-sm text-black">
+            <text>
+                地址：东莞市麻涌镇古梅路198号9栋905铺啊一柠檬茶（古梅体育馆对面）\n
+                联系电话：18128666131\n
+                营业时间：10:00—23:30\n
+            </text>
+        </view>
+    <view class="padding-bottom-xl" wx:for="{{List}}" wx:key="">
+    <navigator url="{{item.Url}}" target="{{item.target}}" opentype="{{item.type}}"
+     app-id="{{item.appid}}" path="{{item.path}}" version="{{item.version}}">
+        <image src="{{imgCDN}}{{img14}}" mode='widthFix' class='response margin-top' />
+    </navigator>
+    <view class="flex-sub text-center">
+      <view class="text-df">点击图片打开校园导览</view>
+    </view>
+    </view>
+</view>

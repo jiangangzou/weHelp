@@ -1,0 +1,78 @@
+.UCenter-bg {
+  background-color: #62a671;
+  background-size: cover;
+  height: 450rpx;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: row;
+  align-items: left;
+  color: #fff;
+  font-weight: 300;
+}
+
+.contour{
+  margin: 0px 15px;
+  border-radius: 20rpx;
+  position: relative;
+  z-index: 100;
+  margin-top: -70rpx;
+}
+
+.userinfo-avatar {  
+  overflow:hidden;  
+  display: block; 
+  margin: 150rpx 50rpx;
+
+}
+.btn-login{
+    overflow:hidden;
+    display: block;
+    margin: 150rpx 0rpx;
+
+}
+
+.user-header,.user-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.user-img {
+  padding-left: 20rpx;
+}
+.user-message {
+  padding-right: 40rpx;
+}
+.img-left {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.user-container {
+  padding-top: 20rpx;
+}
+.img-right {
+  padding-left: 20rpx;
+}
+.user-task-list {
+  /* padding-bottom: 80rpx; */
+}
+.user-task-list .head-name {
+  margin-top: 70rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding-left: 40rpx;
+  background-color: #fff;
+  padding-top: 10rpx;
+}
+.user-container .margin-bottom-xl {
+  margin-bottom: 100rpx;
+}
+.pending-task {
+  display: flex;
+  justify-content: space-between;
+}

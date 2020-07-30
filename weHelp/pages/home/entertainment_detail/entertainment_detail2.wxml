@@ -1,0 +1,175 @@
+<!-- pages/home/entertainment_detail/entertainment_detail.wxml -->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">商家详情</view>
+</cu-custom>
+<swiper class="screen-swiper square-dot  shadow " indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#fec432">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+        <image src="{{imgCDN}}{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+</swiper>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-lg  text-black text-bold '>
+        <text class="text-bold text-orange ">丨</text>
+                广东正宗猪肚鸡开学特惠邀请函
+        <text class="text-bold text-orange ">丨</text>
+    </view>
+    <view class='text-content margin-top-sm padding-bottom-lg'>
+    <text>
+                秋已至，一碗猪肚鸡汤养养身。\n
+猪肚鸡是在广东地区十分闻名的一道滋补汤品，由猪肚和爽韧的鸡肉加上红枣、玉竹等食材熬制而成，汤里浓中带清，有浓郁的药材味和胡椒香气。\n
+猪肚鸡香而醇的汤底配上肉丸或者是牛肉，增添汤汁的鲜味，将一阵阵暖意从口中传递至五脏六腑，是一道养胃、散寒、行气、健脾的菜肴。 </text>   </view>
+    <image src="{{imgCDN}}{{img0}}" mode='widthFix' class='response margin-top  padding-bottom-lg' />
+
+    <view class="action text-center text-bold text-green text-lg  margin-top-xl">
+        <text class="text-bold text-green ">丨</text>
+        食材
+        <text class="text-bold text-green ">丨</text>
+    </view>
+    
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>淼福猪肚鸡食材采用正宗广西传统放养的走山地阉鸡，生长周期180天左右，具有香嫩爽滑，回味无穷，眼未见其物而闻其香之特点，受到广大食客的青睐和好评！</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img1}}" mode='widthFix' class='response margin-top ' />
+    <image src="{{imgCDN}}{{img2}}" mode='widthFix' class='response margin-top ' />
+
+
+    <view class="action text-center text-bold text-orange text-lg  margin-top-xl">
+        <text class="text-bold text-orange ">丨</text>
+                店内环境
+        <text class="text-bold text-orange ">丨</text>
+    </view>
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>红木镂空的屏风划分出店内的两边，明亮宽敞是进入店内的第一感觉，舒适的座椅和到位的服务加上弥漫在空中的胡椒香，适合约上三两好友在这里慢慢品味。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img3}}" mode='widthFix' class='response margin-top ' />
+    <image src="{{imgCDN}}{{img4}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>对于一边熬夜一边高喊养生口号的年轻人来说，这里无疑是最好的选择，熬最晚的夜当然也要用最好的汤来补偿自己。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img5}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>在这里点上一锅猪肚鸡汤，加上老板娘特制的虾丸鱼丸，还有一些菌菇小菜，简直不要太安逸了~</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img6}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="action text-center text-bold text-red text-lg  margin-top-xl">
+        <text class="text-bold text-red ">丨</text>
+                胡椒猪肚鸡
+        <text class="text-bold text-red ">丨</text>
+    </view>
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>进店必点汤底胡椒猪肚鸡，汤底醇白泛着浓浓的鸡肉香气，药材的味道也混藏在其中。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img7}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>老板娘说店内的鸡汤都是用养了180天以上的鸡小火慢熬出来的，对于食物的选材和对猪肚的要求他们有着自己的标准。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img8}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>吃猪肚鸡的第一件事必然先是尝一口汤，勺起一勺满满的鸡肉和猪肚，再来两勺汤底，第一口下去就是鸡肉的鲜味刺激味蕾，然后是胡椒的香味在身体里肆意游荡，将那股热流融进血脉。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img9}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>
+                春夏喝可以行气健脾，秋冬喝可以滋补养胃，这样的猪肚鸡你一定要来试试！
+        </text>
+    </view>
+
+    <view class="action text-center text-bold text-brown text-lg  margin-top-xl">
+        <text class="text-bold text-brown ">丨</text>
+                鸳鸯猪肚鸡
+        <text class="text-bold text-brown ">丨</text>
+    </view>
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>如果单一的胡椒猪肚鸡汤底无法满足你和小伙伴的胃口，那不妨试一试鸳鸯锅~红白的锅底格外诱人，红色的辣油更能刺激出鱼肉和牛肉的鲜香。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img10}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>不管是招待自四方的朋友还是约上广东外来的舍友，都是一个最有特色的选择。这原有的猪肚鸡汤底的基础上做出改良的鸳鸯锅迎合了更多人的口味，让广东的猪肚鸡能有足够的推广市场。</text>
+    </view>
+
+    <view class="action text-center text-bold text-yellow text-lg  margin-top-xl">
+        <text class="text-bold text-yellow ">丨</text>
+                金牌瓦煲饭
+        <text class="text-bold text-yellow ">丨</text>
+    </view>
+
+        <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>来吃猪肚鸡怎么能少得了一份金牌瓦煲饭，为了保证饭的美味，店内的瓦煲饭都是现点现做的，所以都是点单后20分钟左右上菜。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img11}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>腊味瓦煲饭、排骨瓦煲饭都是店内的招牌，瓦煲本身就带有独特的香味，口感和味道都与金属锅炒出来的饭不同。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img12}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>在吃到颗粒分明的炒饭还可以尝试吃锅底的锅巴，许多人为了吃这个锅巴点瓦煲饭，也是童年味道的一种回忆哦~</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img13}}" mode='widthFix' class='response margin-top ' />
+    <image src="{{imgCDN}}{{img14}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>再来一些小菜，配上肥牛等食材，简直是美味之极。</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img15}}" mode='widthFix' class='response margin-top ' />
+    <image src="{{imgCDN}}{{img16}}" mode='widthFix' class='response margin-top ' />
+    <image src="{{imgCDN}}{{img17}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>自助型调味台让你手动调配适合自己的味道，不管是北方麻酱还是南方油碟这里都能满足你的需求~</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img18}}" mode='widthFix' class='response margin-top ' />
+
+    <view class="text-content margin-top-lg padding-bottom-sm">
+        <text>再告诉你个秘密，老板娘有一份秘制调味碟，无论是配上猪肚鸡还是素菜肉菜，都能提鲜生香~到店的朋友报上邻里帮的名字可以得到这份秘密配方！</text>
+    </view>
+
+    <image src="{{imgCDN}}{{img19}}" mode='widthFix' class='response margin-top ' />
+
+    <view class='text-center  text-lg  text-orange text-bold padding-top-xl '>
+        <text class="text-bold text-orange ">丨</text>
+        商家信息
+        <text class="text-bold text-orange ">丨</text>
+    </view>
+    <view class="margin-top-sm text-black">
+        <text>
+            地址：东莞市麻涌华阳湖创客坊二期淼福猪肚鸡\n
+                联系电话：0769-88284298\n
+                营业时间：早上10:00—凌晨3:00\n
+        </text>
+    </view>
+    <view class="padding-bottom-xl" wx:for="{{List}}" wx:key="">
+        <navigator url="{{item.Url}}" target="{{item.target}}" opentype="{{item.type}}" app-id="{{item.appid}}" path="{{item.path}}" version="{{item.version}}">
+            <image src="{{img20}}" mode='widthFix' class='response margin-top' />
+        </navigator>
+        <view class="flex-sub text-center">
+            <view class="text-df">点击图片打开校园导览</view>
+        </view>
+    </view>
+</view>

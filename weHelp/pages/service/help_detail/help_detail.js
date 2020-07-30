@@ -1,0 +1,118 @@
+// pages/service/help_detail/help_detail.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    help_detail: [{
+      help_text: '最多只能十二个汉字字字字',
+      help_price: '15',
+      help_content: '明天上线明天上线',
+      help_wechat: 'HRJ47508',
+      help_phone: '13035717948'
+
+    }], //前端测试静态数据
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    this.setData({
+      detail_id: options.detail_id
+    })
+    var that = this; //=====注意此处，要用that 指代this=====
+    wx.request({
+      url: '', //服务器地址
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      data: {
+        id: that.data.detail_id
+      },
+      header: { // 设置请求的 header
+        'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res);
+        that.setData({ //======不能直接写this.setDate======
+          help_detail: res.data, //在相应的wxml页面显示接收到的数据
+        });
+      },
+      fail: function(res) {
+        console.log('request fail');
+      }
+    })
+  },
+  CopyWechat(e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.wechat,
+      success: res => {
+        wx.showToast({
+          title: '已复制',
+          duration: 1000,
+        })
+      }
+    })
+  },
+  calling: function(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone,
+      success: function() {
+        console.log("拨打电话成功！")
+      },
+      fail: function() {
+        console.log("拨打电话失败！")
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

@@ -1,0 +1,13 @@
+<!--pages/message/home/tel.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">新华电话本</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+<image src="https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/电话本.jpg"  
+mode='widthFix' class='response'   bindtap="previewImage" />
+  <view class="flex-sub text-center">
+      <view class="solid-bottom text-df padding">点击图片查看大图</view>
+  </view>
+  
+</scroll-view>

@@ -1,0 +1,80 @@
+<!--pages/home/lost_found/lost_found.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">发布失物寻物</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+    <form bindsubmit="formSubmit">
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    物品信息
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">类型</view>
+                <picker name="lost_found_type" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+                    <view class="picker">{{index?picker[index]:'请选择类别'}}</view>
+                </picker>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">标题</view>
+                <input type='text' name="lost_found_text" value='' placeholder="品牌类型型号之类的（12字/必填）"></input>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <textarea name="lost_found_content" maxlength="200" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="可以描述一下宝贝的情况（200字/必填）"></textarea>
+            </view>
+            <view class="cu-bar bg-white">
+                <view class="action">图片上传</view>
+                <view class="action">{{imgList.length}}/4</view>
+            </view>
+            <view class="cu-form-group">
+                <view class="grid col-4 grid-square flex-sub">
+                    <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                            <text class="cuIcon-close"></text>
+                        </view>
+                    </view>
+                    <view class="solids" bindtap="uploadimg" wx:if="{{imgList.length<4}}">
+                        <text class="cuIcon-cameraadd"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+            <view class="cu-form-group solid-bottom">
+                <view class="action text-bold text-black text-lg">
+                    <text class="text-bold text-yellow ">丨</text>
+                    联系方式
+                </view>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">微信号</view>
+                <input type="text" name="lost_found_wechat" value="" placeholder=""></input>
+            </view>
+            <view class="cu-form-group solid-bottom">
+                <view class="title">手机号码</view>
+                <input type="number" name="lost_found_phone" value='' placeholder=""></input>
+                <view class="cu-capsule radius">
+                    <view class="cu-tag bg-yellow">+86</view>
+                    <view class="cu-tag line-yellow">中国大陆</view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-form-group2">
+            <checkbox-group name="lost_found_checkbox" bindchange="lost_found_checkbox_checkboxChange" class="line">
+                <checkbox class="round blue cb" value="true" checked="false" />
+                我已阅读并同意
+                <navigator url="/pages/user_protocol/user_protocol" class="text-yellow" hover-class="navigator-hover">
+                    《新华帮帮用户协议》
+                </navigator>
+            </checkbox-group>
+        </view>
+        <button class="cu-btn block bg-yellow lg " form-type="submit">
+        <text class="cuIcon-upload"></text>
+        发布
+    </button>
+    </form>
+</scroll-view>

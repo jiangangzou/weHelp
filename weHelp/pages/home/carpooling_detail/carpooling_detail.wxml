@@ -1,0 +1,63 @@
+<!-- pages/home/carpooling_detail/carpooling_detail.wxml -->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">拼车详情</view>
+</cu-custom>
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+  <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
+    <view class="cu-item ">
+      <view class="action text-bold text-black text-lg">
+        <text class="text-bold text-blue ">丨</text>
+        拼车信息
+      </view>
+    </view>
+    <view wx:for="{{carpooling_detail}}" wx:for-item="c" wx:key="id" name="carpooling_detail">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action line">
+          <text class="title text-bold text-blue padding">出发地:</text>
+          <text class="text-df">{{c.carpooling_place}}</text>
+          <text class="title text-bold text-blue padding">目的地:</text>
+          <text class="text-df">{{c.carpooling_toplace}}</text>
+        </view>
+      </view>
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="title text-bold text-blue padding">出发时间:</text>
+          <text class="text-df">{{c.carpooling_start_date}}  {{c.carpooling_start_time}}</text>
+        </view>
+      </view>
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="title text-bold text-blue padding">截止时间:</text>
+          <text class="text-df">{{c.carpooling_end_date}}  {{c.carpooling_end_time}}</text>
+        </view>
+      </view>
+      <view class="cu-bar bg-white solid-bottom padding-bottom-xl">
+        <view class="action">
+          <text class="title text-bold text-blue padding-sm">备 注:</text>
+          <text class="text-df padding">{{c.carpooling_content}}</text>
+        </view>
+      </view>
+      <view class="cu-bar bg-white tabbar border foot">
+        <view class="bg-btn text-white submit">
+          <button class="action" open-type="contact">
+            <view class="cuIcon-service text-blue"></view>
+            客服
+          </button>
+        </view>
+        <view class="bg-btn1 text-white submit" bindtap="CopyWechat" data-wechat="{{c.carpooling_wechat}}">
+          微信联系
+        </view>
+        <view class="bg-btn2 text-white submit" bindtap="calling" data-phone="{{c.carpooling_phone}}">
+          手机联系
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部文字 -->
+  <view class=' padding  margin-bottom-xl'>
+    <view class="text-sm text-center  margin-bottom-xl">
+      <text class="text-grey padding-sm ">© 2019 新华邻里帮</text>
+    </view>
+  </view>
+</scroll-view>

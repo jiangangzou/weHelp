@@ -1,0 +1,4 @@
+/* pages/message/home/wb.wxss */
+.link {
+    text-decoration: underline;
+}

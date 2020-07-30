@@ -1,0 +1,2 @@
+<!--pages/home/maintenance/maintenance.wxml-->
+<web-view src= "https://maintenance.light-year-tech.com"></web-view>

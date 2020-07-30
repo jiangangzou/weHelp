@@ -1,0 +1,31 @@
+<!--pages/home/entertainment_detail/entertainment_detail.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">商家详情</view>
+</cu-custom>
+<swiper class="screen-swiper square-dot  shadow " indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#fec432">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+</swiper>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-lg  text-black text-bold '>
+    <text class="text-bold text-orange ">丨</text>
+    邻里帮
+    <text class="text-bold text-orange ">丨</text>
+    </view>
+    <view class='text-content'>
+        <view class='margin-top-sm'>
+             一个有温度、有态度的最具影响力的自媒体。致力于校园信息化生活服务平台，实时推送校园动态、学校信息发布、学习资源分享，以及周边吃喝玩乐优惠推介。关注邻里帮，玩出大不同！
+        </view>
+        <view class="margin-top-sm text-black text-sm text-bold">
+        地址：西门众创空间第15号铺
+        </view>
+    </view>
+    <image src="{{img1}}"
+    mode='widthFix' class='response margin-top'  bindtap="previewImage" />
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-df">点击图片查看大图</view>
+    </view>
+</view>

@@ -1,0 +1,46 @@
+/* pages/message/home/home.wxss */
+
+.text-size{
+  font-size: 25rpx;
+  margin-top: -50rpx;  /*间距*/
+  margin-bottom: 25rpx;  /*字符高度*/
+}
+
+.cu-avatar-service {
+	font-variant: small-caps;
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(57, 181, 74);
+	color: var(--white);
+	white-space: nowrap;
+  width: 110rpx;
+  height: 110rpx;
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	vertical-align: middle;
+  top: 170px;
+  right: 5%;
+	/* font-size: 1.5em; */
+}
+
+.view-position{
+  display: flex;
+  justify-content: flex-end;
+  z-index: 99999;
+}
+
+
+
+.icon_class{
+  width: 50rpx;
+  height: 50rpx;
+  margin:0 auto;
+}
+page{
+	padding-bottom: 100upx;
+  }

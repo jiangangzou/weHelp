@@ -1,0 +1,12 @@
+/* pages/home/carpooling_detail/carpooling_detail.wxss */
+.line {
+    display: flex;
+    flex-direction: row;
+
+}
+.bg-btn1{
+    background-color: #00a0e9;
+}
+.bg-btn2{
+    background-color: #fcc143;
+}

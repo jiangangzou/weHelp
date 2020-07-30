@@ -1,0 +1,9 @@
+<!--pages/users/my_release/my_release.wxml-->
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">我的发布</view>
+</cu-custom>
+        <image src="/pages/users/home/img/4.png" mode='widthFix' class='response' />
+
+
+

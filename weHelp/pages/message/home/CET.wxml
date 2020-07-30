@@ -1,0 +1,14 @@
+<!--pages/message/home/CET.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">四六级查询</view>
+</cu-custom>
+    <view class="flex-sub text-center">
+        <view class="solid-bottom text-df padding text-blue"  bindtap="CopyLink" data-link="{{link}}">  
+        <text class="link" > http://cet.neea.edu.cn/cet/ </text>
+        </view>
+        <view class="padding">
+        <text>由于小程序不能跳转外部链接\n可点击上方链接复制到浏览器打开</text>
+        </view>
+                
+    </view>

@@ -1,0 +1,18 @@
+/* pages/home/help/help.wxss */
+.cu-form-group2 {
+  margin: 20rpx 20rpx;
+  padding: 20rpx 20rpx 20rpx 100rpx;
+	display: flex;
+	align-items: center;
+	min-height: 60rpx;
+  justify-content: space-between;
+  text-align:center;
+}
+.cb{
+  transform: scale(0.6,0.6);
+}
+.line{
+    display: flex;
+    flex-direction: row;
+
+}

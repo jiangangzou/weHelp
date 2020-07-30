@@ -1,0 +1,42 @@
+/* pages/home/home/home.wxss */
+.userinfo-avatar {  
+  overflow:hidden;  
+  display: block;  
+}
+.container {
+  height: 100vh;
+  background-color: #fff;
+}
+.home-head {
+  height: 100%;
+  background-color: black;
+  color: #fff;
+}
+.list-head {
+  display: flex;
+  justify-content: space-between;
+}
+.list-name {
+  padding-left: 20px;
+}
+.list-more {
+  padding-right: 20px;
+}
+.task-list {
+  padding-bottom: 40px;
+}
+.bg-img {
+  height: 100px;
+  width: 750rpx;
+}
+.person-info {
+  display: flex;
+  justify-content: space-between;
+}
+.task-item-bottom {
+  position: relative;
+}
+.time-line {
+  position: absolute;
+  top: 25%;
+}
