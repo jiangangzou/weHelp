@@ -32,11 +32,12 @@
 
 </view>
 <view class="round-click shadow">
-   <view  bindtap="showQrcode">商家合作</view>
+   <view  bindtap="showQrcode">联系客服</view>
 </view>
 
 </scroll-view>
 
-<cu-custom  class="text-black" isBack="{{true}}">
-    <view slot="backText" >返回</view>
+<cu-custom bgColor="bg-yellow" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">帮帮列表</view>
 </cu-custom>

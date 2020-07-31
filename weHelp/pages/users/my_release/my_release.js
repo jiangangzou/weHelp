@@ -33,6 +33,7 @@ Page({
     }
   
   ],
+    readylist:['a'],
     load: true
 
   },

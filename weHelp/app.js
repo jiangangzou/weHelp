@@ -10,7 +10,7 @@ App({
     //   success: (res) => {
     //     var code = res.code; //返回code                                    
     //     this.globalData.code = code;
-    //     this.globalData.appId = 'wxadcef31df2e96e12';
+    //     this.globalData.appId = 'wxc72a0ed41fd1ddaa';
     //     this.globalData.secret = 'f9f1e821ac583c49ad99dfedaa1b9164';
     //     wx.request({
     //       url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + this.globalData.appId + '&secret=' + this.globalData.secret + '&js_code=' + code + '&grant_type=authorization_code',
@@ -34,15 +34,18 @@ App({
     //         })
     //       }
     //     })
+    //   },
+    //   fail: () => {
+    //     console.log('登陆失败')
     //   }
     // }),
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    // wx.login({
+    //   success: res => {
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //   }
+    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -78,6 +81,8 @@ App({
   
   globalData: {
     userInfo: null,
-    isChecked:''
+    isChecked:'',
+    isLogin: false,
+    
   }
 })

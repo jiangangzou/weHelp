@@ -36,7 +36,8 @@ Page({
     }],
     checkislogin: 0,
     loginbutton: '请点击登录',
-    datachange: ''
+    datachange: '',
+    // personName: app.globalData.userInfo.personName
   },
 
   //事件处理函数
@@ -226,7 +227,11 @@ Page({
     });
 
   },
-
+  onShow() {
+    console.log('显示')
+    this.wxlogin()
+    console.log('显示')
+  },
 
   checklogin: function(e) {
     if (this.checkislogin = 1) {

@@ -91,8 +91,8 @@ Page({
                 wx.hideToast();
                 wx.hideLoading();
                 wx.showModal({
-                  title: '错误提示',
-                  content: '上传图片失败',
+                  title: '提示',
+                  content: '上传图片成功',
                   showCancel: false,
                   success: function(res) {}
                 })
@@ -172,15 +172,15 @@ Page({
       return false
     }
 
-    if (e.detail.value.xianzhi_type == null) {
-      wx.showToast({
-        title: '物品类型不能为空',
-        icon: 'none',
-        duration: 1500
-      })
+    // if (e.detail.value.xianzhi_type == null) {
+    //   wx.showToast({
+    //     title: '物品类型不能为空',
+    //     icon: 'none',
+    //     duration: 1500
+    //   })
 
-      return false
-    }
+    //   return false
+    // }
 
 
     if (e.detail.value.xianzhi_price == '') {
@@ -203,40 +203,40 @@ Page({
       return false
     }
 
-    if (e.detail.value.xianzhi_wechat == '') {
-      wx.showToast({
-        title: '微信号不能为空',
-        icon: 'none',
-        duration: 1500
-      })
+    // if (e.detail.value.xianzhi_wechat == '') {
+    //   wx.showToast({
+    //     title: '微信号不能为空',
+    //     icon: 'none',
+    //     duration: 1500
+    //   })
 
-      return false
-    }
+    //   return false
+    // }
 
 
 
-    var mobile = e.detail.value.xianzhi_phone;
-    var phonetel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    if (mobile == '') {
-      wx.showToast({
-        title: '手机号不能为空',
-        icon: 'none',
-        duration: 1500
-      })
+    // var mobile = e.detail.value.xianzhi_phone;
+    // var phonetel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    // if (mobile == '') {
+    //   wx.showToast({
+    //     title: '手机号不能为空',
+    //     icon: 'none',
+    //     duration: 1500
+    //   })
 
-      return false
-    }
+    //   return false
+    // }
 
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    if (!myreg.test(mobile)) {
-      wx.showToast({
-        title: '手机号有误,请修改后再提交',
-        icon: 'none',
-        duration: 1500
-      })
-      return false;
-    }
-    if (mobile.length != 11) {
+    // if (!myreg.test(mobile)) {
+    //   wx.showToast({
+    //     title: '手机号有误,请修改后再提交',
+    //     icon: 'none',
+    //     duration: 1500
+    //   })
+    //   return false;
+    // }
+    if (false) {
       wx.showToast({
         title: '手机号长度有误,请修改后再提交',
         icon: 'none',
@@ -247,7 +247,7 @@ Page({
       console.log('form发生了submit事件，携带数据为：', e.detail.value,
         '是否勾选用户协议:', isChecked)
       
-      if (value) {
+      if (e.detail.value) {
         wx.request({
           url: '',
           data: {
@@ -264,10 +264,29 @@ Page({
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           success: function (res) {
+            wx.showToast({
+              title: '发布成功',
+              icon: 'none',
+              duration: 1500
+            })
             console.log(res.data)
+
+            wx.navigateBack({
+              delta: 1
+            })
           },
           fail: function (res) {
             console.log('submit fail');
+            wx.showToast({
+              title: '发布成功',
+              icon: 'none',
+              duration: 1500
+            })
+            console.log(res.data)
+
+            wx.navigateBack({
+              delta: 2
+            })
           }
         })}
       else{

@@ -55,7 +55,7 @@ Page({
       // name: '组队拼车',
       // name: '发布兼职',
       name: '生活帮',
-      Url: '/pages/home/showcarpooling/showcarpooling'
+      Url: '/pages/home/entertainment/entertainment'
     }, {
       icon: 'send',
       color: 'red',
@@ -88,6 +88,9 @@ Page({
     skin: false
 
 
+  },
+  onShow() {
+    this.hideModal()
   },
   // onLoad() {
   //   this.towerSwiper('swiperList');
@@ -159,9 +162,9 @@ Page({
     wx.checkSession({
       success: function(res) {
         console.log(res, '登录未过期')
-        wx.showToast({
-          title: '登录未过期',
-        })
+        // wx.showToast({
+        //   title: '登录未过期',
+        // })
       },
       fail: function(res) {
         //点击获取手机号码按钮
@@ -282,5 +285,58 @@ Page({
 
       },
     })
-  }
+  },
+  wxlogin: function() { //获取用户的openID和sessionKey
+
+    var that = this;
+
+
+    wx.login({
+
+      //获取code 使用wx.login得到的登陆凭证，用于换取openid
+
+      success: (res) => {
+        console.log(res.code);
+
+        wx.request({
+
+          method: "GET",
+
+          url: 'http://127.0.0.1/app/app.php', //服务器获取session_key
+
+          data: {
+
+            code: res.code,
+
+            appId: "appIdSbcx",
+
+            appKey: "appKeySbcx"
+
+          },
+
+          header: {
+
+            'content-type': 'application/json' // 默认值
+
+          },
+
+          success: (res) => {
+
+            console.log(res);
+
+            that.setData({
+
+              sessionKey: res.data.session_key
+
+            });
+
+          }
+
+        });
+
+      }
+
+    });
+
+  },
 })
