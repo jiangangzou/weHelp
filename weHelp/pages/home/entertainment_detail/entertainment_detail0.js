@@ -1,10 +1,14 @@
 // pages/home/entertainment_detail/entertainment_detail.js
+let app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    bgColor: 'bg-red',
+    formData: app.globalData.formDat,
+    userInfo: app.globalData.userInfo,
     swiperList: [{
       id: 0,
       type: 'image',
@@ -37,6 +41,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.setData({
+      formData: app.globalData.formData,
+      userInfo: app.globalData.userInfo
+    })
 
   },
   previewImage: function (e) {
@@ -87,5 +95,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  orderNow() {
+    this.setData({
+      bgColor: 'bg-gray'
+    })
+    wx.showToast({
+      title: '接单成功',
+      icon: 'none',
+      duration: 1500
+    })
+    setTimeout(() =>  {
+      wx.redirectTo({
+        url: '/pages/home/entertainment_detail/entertainment_detail1'
+      })
+    },2000)
+
+  
   }
 })

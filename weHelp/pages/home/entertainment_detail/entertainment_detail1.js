@@ -1,51 +1,66 @@
 // pages/home/entertainment_detail/entertainment_detail.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'shangjia/ayiningmengcha/5.gif'
+      url: 'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/swiper0.jpg?sign=4a602c9fff4904b89f1353c13f1a066a&t=1563380770'
     }, {
       id: 1,
       type: 'image',
-      url: 'shangjia/ayiningmengcha/10.gif',
+        url: 'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/bg.png?sign=a197cd09693de82eb9f15634b29fa4d2&t=1563621115',
     }, {
       id: 2,
       type: 'image',
-      url: 'shangjia/ayiningmengcha/6.gif'
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
     }, {
       id: 3,
       type: 'image',
-      url: 'shangjia/ayiningmengcha/20.gif'
+        url: 'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/bg.png?sign=a197cd09693de82eb9f15634b29fa4d2&t=1563621115'
     }],
-    List:[{
-      target: "miniProgram",
-        opentype: "navigate",
-        appid: "wx5e431673dff5255d",
-        path: "/pages/map/polyline?latitude=23.058522&longitude=113.575024&name=啊一柠檬茶&floor=创客坊二期 古梅体育馆对面",
-        version: "release"
+    entertainment_List:[
+      {
+        title:'邻里帮',
+        imglink: 'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/shangjia/img/logo.jpg?sign=ac38cd09be1f8a47b232fa63558c6e99&t=1568121229',
+        content: '一个有温度、有态度的最具影响力的自媒体。致力于校园信息化生活服务平台，实时推送校园动态、学校信息发布、学习资源分享，以及周边吃喝玩乐优惠推介。关注邻里帮，玩出大不同！',
+        tag0:'自媒体',
+        tag1:'校园服务',
+        urlLink: '/pages/home/entertainment_detail/entertainment_detail0'
+      },
+      {
+        title:'啊一柠檬茶',
+        imglink:'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/shangjia/img/2.jpg?sign=a0366758ab3d54f76f75b26d7abc6e4e&t=1568120502',
+        content:'饮品推荐 | 啊一柠檬茶强势入驻麻涌，这1杯我请你喝',
+        tag0:'美食',
+        tag1:'茶点',
+        urlLink: '/pages/home/entertainment_detail/entertainment_detail1'
+      },
+      {
+        title:'淼福猪肚鸡',
+        imglink:'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/shangjia/img/0.jpg?sign=2854512b05386962dff727839b7827a6&t=1568120687',
+        content:'美食推荐 | 广东正宗猪肚鸡开学特惠邀请函',
+        tag0:'美食',
+        tag1:'正餐',
+        urlLink: '/pages/home/entertainment_detail/entertainment_detail2'
+      },
+      {
+        title:'光年科技',
+        imglink:'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/Logo.png?sign=ce3c5c76efa471f6d16717a512ddd0a7&t=1564459086',
+        content:'科技即服务，探索与创新，Think Diffrent',
+        tag0:'科技集市',
+        tag1:'电脑维修',
+        tag2:'软件开发'
+      }
+    ],
+    cooperation_img: ['https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/shangjia/img/wechat.jpg?sign=c51081bc98b38bda055120c28a6ad3b1&t=1564498610']
 
-    }],
-    imgCDN: 'https://light-year-1258515630.file.myqcloud.com/xhsysu_bb/',
-    img0: ['shangjia/ayiningmengcha/2.jpg'],
-    img1: ['shangjia/ayiningmengcha/9.jpg'],
-    img2: ['shangjia/ayiningmengcha/3.jpg'],
-    img3: ['shangjia/ayiningmengcha/5.gif'],
-    img4: ['shangjia/ayiningmengcha/6.gif'],
-    img5: ['shangjia/ayiningmengcha/7.jpg'],
-    img6: ['shangjia/ayiningmengcha/8.jpg'],
-    img7: ['shangjia/ayiningmengcha/11.jpg'],
-    img8: ['shangjia/ayiningmengcha/12.jpg'],
-    img9: ['shangjia/ayiningmengcha/13.jpg'],
-    img10: ['shangjia/ayiningmengcha/14.jpg'],
-    img11: ['shangjia/ayiningmengcha/15.jpg'],
-    img12: ['shangjia/ayiningmengcha/16.jpg'],
-    img13: ['shangjia/ayiningmengcha/17.jpg'],
-    img14: ['shangjia/ayiningmengcha/20.gif'],
   },
 
   /**
@@ -59,7 +74,23 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let entertainment = {}
+    entertainment.title = app.globalData.formData.taskTitle
+    entertainment.imglink = 'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/shangjia/img/logo.jpg?sign=ac38cd09be1f8a47b232fa63558c6e99&t=1568121229'
+    entertainment.content = app.globalData.formData.taskContent
+    entertainment.taskTime = app.globalData.formData.taskTime
+    entertainment.taskDate = app.globalData.formData.taskDate
+    entertainment.taskDuration = app.globalData.formData.taskDuration
+    entertainment.taskPrice = app.globalData.formData.taskPrice
+    entertainment.urlLink= '/pages/home/entertainment_detail/entertainment_detail0'
+    entertainment.tag0 = '生活帮'
+    entertainment.isConfirm = false
+    let entertainmentResult = this.data.entertainment_List
+    entertainmentResult.unshift(entertainment)
+    console.log(entertainmentResult,'entertainmentResult')
+    this.setData({
+      entertainment_List: entertainmentResult
+    })
   },
   previewImage: function (e) {
     var current = e.target.dataset.src;
@@ -113,5 +144,24 @@ Page({
       imageUrl: 'https://light-year-1258515630.file.myqcloud.com/xhsysu_bb/shangjia/ayiningmengcha/2.jpg',
       path: '/pages/home/entertainment_detail/entertainment_detail1'
     }
+  },
+  confirmTask() {
+    // this.entertainment_List[0].isConfirm = true
+    let entertainment_List = this.data.entertainment_List
+    wx.showModal({
+      title: '确认完成吗',
+      content: '已完成将在0.5天后爱心值到账',
+      cancelText: '点错了',
+      confirmText: '确认',
+      success: res => {
+        if (res.confirm) {
+          entertainment_List[0].isConfirm = true
+          this.setData({
+            entertainment_List: entertainment_List
+          })
+        }
+      }
+    })
+   
   }
 })

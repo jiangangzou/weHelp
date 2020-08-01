@@ -61,13 +61,13 @@ Page({
       color: 'red',
       badge: 0,
       name: '家政',
-      Url: '/pages/home/showexpress/showexpress'
+      Url: '/pages/home/maintenance/maintenance'
     }, {
       icon: 'repairfill',
       color: 'grey',
       badge: 0,
       name: '跑腿',
-      Url: '/pages/home/maintenance/maintenance'
+      Url: '/pages/home/showexpress/showexpress'
     }, {
       icon: 'shopfill',
       color: 'yellow',
@@ -81,7 +81,12 @@ Page({
       name: '其他',
       Url: '/pages/home/resources/resources'
     }],
-
+    curIconList: {
+      cuIcon: 'noticefill',
+      color: 'olive',
+      badge: 22,
+      name: '通知'
+    },
 
 
     gridCol: 3,
@@ -339,4 +344,9 @@ Page({
     });
 
   },
+  moreList() {
+    wx.redirectTo({
+      url: '/pages/home/entertainment/entertainment'
+    })
+  }
 })

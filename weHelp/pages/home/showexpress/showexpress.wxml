@@ -1,7 +1,7 @@
 <!--pages/home/showexpress/showexpress.wxml-->
 <cu-custom bgColor="bg-yellow" isBack="{{true}}">
     <view slot="backText">返回</view>
-    <view slot="content">快递代拿</view>
+    <view slot="content">友邻跑腿</view>
 </cu-custom>
 <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}} ">
   <view class='brand1'>
@@ -16,7 +16,7 @@
             <view class="text-view-width">
               {{e.express_dong}}{{e.express_room}}
             </view>
-            <view class="text-right text-price text-red price-view-width">{{e.express_price}}</view>
+            <view class="text-right text-red price-view-width" style="font-size: 18rpx;">爱心值：{{e.express_price}}</view>
           </view>
         </view>
 
@@ -57,7 +57,7 @@
   <!-- 底部文字 -->
     <view class=' padding'>
     <view class="solid-bottom text-sm text-center">
-      <text class="text-grey padding-sm ">© 2019 邻里帮</text>
+      <text class="text-grey padding-sm ">© 2020 友邻</text>
     </view>
   </view>
 

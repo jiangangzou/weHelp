@@ -2,6 +2,8 @@ const app = getApp()
 Page({
   data: {
     PageCur: 'home',
+    modalNameRadio1: null,
+    radio: 'radio1',
     elements: [{
         // title: '发布闲置',
         title: '闲置转让',
@@ -39,8 +41,8 @@ Page({
         url: '/pages/home/help/help'
       }
     ],
-    canIUse: true
-
+    canIUse: true,
+    locationList: ['紫竹园21栋201','紫竹院30栋331','紫竹园23栋501','紫竹园23栋501']
   },
   NavChange(e) {
     this.setData({
@@ -297,6 +299,21 @@ getLocation: function (userLocation) {
     })
 },
 
+showModalRadio1(e) {
+  this.setData({
+    modalNameRadio1: e
+  })
+  // this.modalName = e.currentTarget.dataset.target
+},
+hideModalRadio1() {
+  this.setData({
+    modalNameRadio1: ''
+  })
+  // this.modalName = null
+},
+RadioChange(e) {
+  this.radio = e.detail.value
+},
 bindGetUserInfo: function(res) {
 
       if (res.detail.userInfo) {
@@ -313,14 +330,13 @@ bindGetUserInfo: function(res) {
   
         //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
         app.globalData.isLogin = true
-        // app.globalData.userInfo.personName = res.detail.userInfo.nickName
+        app.globalData.userInfo.personName = res.detail.userInfo.nickName
         that.setData({
   
           isHide: false,
           canIUse: false
   
         });
-
   
       } else {
   
@@ -352,5 +368,54 @@ bindGetUserInfo: function(res) {
   
       }
   
-   }
+   },
+
+  wxlogin: function(data) { //获取用户的openID和sessionKey
+
+    var that = this;
+
+
+    wx.login({
+
+      //获取code 使用wx.login得到的登陆凭证，用于换取openid
+
+      success: (res) => {
+        console.log(res.code);
+
+        this.bindGetUserInfo(data)
+        this.showModalRadio1('RadioModal')
+        wx.request({
+          url: 'http://172.20.10.8/login',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          data: {
+            code: res.code, //临时登录凭证
+            // rawData: info_res.rawData, //用户非敏感信息
+            // signature: info_res.signature, //签名
+            // encrypteData: info_res.encryptedData, //用户敏感信息
+            // iv: info_res.iv //解密算法的向量
+          },
+
+          success: (res) => {
+
+            console.log(res);
+
+            that.setData({
+
+              sessionKey: res.data.session_key
+
+            });
+
+          }
+
+        });
+
+      }
+
+    });
+
+  },
+
 })

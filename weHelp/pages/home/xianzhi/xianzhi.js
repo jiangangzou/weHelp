@@ -13,7 +13,9 @@ Page({
     xianzhi_picker: ['电子产品', '衣服鞋子', '化妆品', '书籍资料', '代步工具', '其他'], //id从0开始
     isChecked: 'true',
     time: '12:01',
-		date: '2018-12-25',
+    date: '2018-12-25',
+    index: -1,
+		picker: ['0.5天', '1天', '2天', '3天'],
   },
   //选择图片与上传
   xianzhi_uploadimg: function() {
@@ -203,30 +205,6 @@ Page({
       return false
     }
 
-    // if (e.detail.value.xianzhi_wechat == '') {
-    //   wx.showToast({
-    //     title: '微信号不能为空',
-    //     icon: 'none',
-    //     duration: 1500
-    //   })
-
-    //   return false
-    // }
-
-
-
-    // var mobile = e.detail.value.xianzhi_phone;
-    // var phonetel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    // if (mobile == '') {
-    //   wx.showToast({
-    //     title: '手机号不能为空',
-    //     icon: 'none',
-    //     duration: 1500
-    //   })
-
-    //   return false
-    // }
-
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     // if (!myreg.test(mobile)) {
     //   wx.showToast({
@@ -248,11 +226,21 @@ Page({
         '是否勾选用户协议:', isChecked)
       
       if (e.detail.value) {
+        // console.log(e.detail.value,'e.detail.value')
+        let formData = {}
+        formData.taskTitle = e.detail.value.xianzhi_text  //任务标题
+        formData.taskPrice = e.detail.value.xianzhi_price  //任务价格
+        formData.taskContent = e.detail.value.xianzhi_content //任务内容
+        formData.taskTime = this.data.time  //任务开始时间
+        formData.taskDate = this.data.date  //任务开始日期
+        formData.taskDuration = this.data.picker[this.data.index]
+        app.globalData.formData = formData
+        console.log(app.globalData.formData, 'app.globalData.formData')
         wx.request({
           url: '',
           data: {
             'xianzhi_text': e.detail.value.xianzhi_text,
-            'xianzhi_type': e.detail.value.xianzhi_type,
+            // 'xianzhi_type': e.detail.value.xianzhi_type,
             'xianzhi_price': e.detail.value.xianzhi_price,
             'xianzhi_content': e.detail.value.xianzhi_content,
             'xianzhi_wechat': e.detail.value.xianzhi_wechat,
@@ -271,8 +259,8 @@ Page({
             })
             console.log(res.data)
 
-            wx.navigateBack({
-              delta: 1
+            wx.redirectTo({
+              url: '/pages/home/entertainment/entertainment'
             })
           },
           fail: function (res) {
@@ -283,10 +271,12 @@ Page({
               duration: 1500
             })
             console.log(res.data)
-
-            wx.navigateBack({
-              delta: 2
-            })
+            setTimeout(() => {
+              wx.redirectTo({
+                url: '/pages/home/entertainment/entertainment'
+              })
+            }, 1500)
+           
           }
         })}
       else{
@@ -328,6 +318,13 @@ Page({
         }
       }
     }
+    
+  },
+  PickerChange(e) {
+    console.log(e.detail.value,'e')
+    this.setData({
+      index: e.detail.value
+    })
   },
   // getPhoneNumber: function (e) {
   //     console.log(e.detail.errMsg)
@@ -393,13 +390,17 @@ Page({
   onShareAppMessage: function() {
 
   },
-  methods: {
     TimeChange(e) {
-      this.time = e.detail.value
+      this.setData({
+        time: e.detail.value
+      })
+      // this.time = e.detail.value
     },
     DateChange(e) {
-      this.date = e.detail.value
+      this.setData({
+        date: e.detail.value
+      })
+      // this.date = e.detail.value
     },
-  }
-  
+
 })

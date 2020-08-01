@@ -1,7 +1,7 @@
 <!-- pages/home/express_detail/express_detail.wxml -->
 <cu-custom bgColor="bg-yellow" isBack="{{true}}">
     <view slot="backText">返回</view>
-    <view slot="content">快递代拿</view>
+    <view slot="content">友邻跑腿</view>
 </cu-custom>
 <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
     <view class="cu-list menu sm-border solid-bottom card-menu margin-top">
@@ -33,7 +33,7 @@
             <view class="cu-form-group solid-bottom ">
                 <view class="action">
                     <text class="title text-black padding-sm">酬  金:</text>
-                    <text class="text-price text-df text-red text-bold">{{e.express_price}}</text>
+                    <text class="text-price text-df text-red text-bold" style="font-size: 18rpx;">{{e.express_price}}</text>
                 </view>
             </view>
             <view class="cu-form-group solid-bottom ">

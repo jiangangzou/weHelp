@@ -48,9 +48,14 @@
   padding-right: 40rpx;
 }
 .img-left {
-  width: 80rpx;
-  height: 80rpx;
   border-radius: 50%;
+  overflow: hidden;
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  background: yellow;
+  left: 0rpx;
+  top: 0rpx;
 }
 .user-container {
   padding-top: 20rpx;
@@ -75,4 +80,13 @@
 .pending-task {
   display: flex;
   justify-content: space-between;
+}
+.user-message {
+  position: relative;
+}
+.text-olive, .line-olive, .lines-olive {
+  text-align: center;
+}
+.cu-tag.badge {
+  right: 16rpx;
 }

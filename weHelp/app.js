@@ -80,9 +80,9 @@ App({
 
   
   globalData: {
-    userInfo: null,
+    userInfo: {},
     isChecked:'',
     isLogin: false,
-    
+    formData: ''
   }
 })

@@ -1,7 +1,7 @@
 <!--pages/home/resources/resources.wxml-->
 <!-- <web-view src= "https://mp.weixin.qq.com/s/nnUY0vKFGXTwCH8hvCwMug"></web-view> -->
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
-    <view slot="backText">返回</view>
+<cu-custom bgColor="bg-blue" isBack="{{false}}">
+    <!-- <view slot="backText">返回</view> -->
     <view slot="content">we商城</view>
 </cu-custom>
 <view class="main">

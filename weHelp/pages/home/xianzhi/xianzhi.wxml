@@ -23,8 +23,8 @@
                 </picker>
             </view> -->
             <view class="cu-form-group  solid-bottom">
-                <view class="title">价格</view>
-                <input type="number" name="xianzhi_price" value='' placeholder="请输入该任务价格"></input>
+                <view class="title">奖励金</view>
+                <input type="number" name="xianzhi_price" value='' placeholder="请输入该任务奖励金"></input>
                 元
             </view>
             <view class="cu-form-group  solid-bottom">
@@ -52,12 +52,12 @@
             <view class="cu-form-group  solid-bottom">
                 <view class="action text-bold text-black text-lg">
                     <text class="text-bold text-yellow ">丨</text>
-                    截至时间
+                    开始时间
                 </view>
             </view>
             <view class="cu-form-group">
 				<view class="title">时间选择</view>
-				<picker mode="time" :value="time" start="09:01" end="21:01" bindchange="TimeChange">
+				<picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
 					<view class="picker">
 						{{time}}
 					</view>
@@ -65,9 +65,17 @@
 			</view>
 			<view class="cu-form-group">
 				<view class="title">日期选择</view>
-				<picker mode="date" :value="date" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+				<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
 					<view class="picker">
 						{{date}}
+					</view>
+				</picker>
+            </view>
+            <view class="cu-form-group margin-top">
+				<view class="title">任务时长</view>
+				<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+					<view class="picker">
+						{{index>-1?picker[index]:'请选任务时长'}}
 					</view>
 				</picker>
 			</view>

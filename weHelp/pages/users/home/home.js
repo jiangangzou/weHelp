@@ -1,7 +1,5 @@
 const app = getApp()
 
-
-
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
@@ -17,7 +15,7 @@ Page({
         icon: 'time',
       badge: 0,
       name: '进行中',
-      Url: '/pages/users/verified/verified'
+      Url: '/pages/home/entertainment_detail/entertainment_detail1'  
     }, {
         icon: 'roundclose',
       badge: 0,
@@ -37,6 +35,13 @@ Page({
     checkislogin: 0,
     loginbutton: '请点击登录',
     datachange: '',
+    curIconList: {
+      cuIcon: 'noticefill',
+      color: 'olive',
+      badge: 22,
+      name: '通知'
+    },
+    myLoveStar: '98'
     // personName: app.globalData.userInfo.personName
   },
 
@@ -112,8 +117,12 @@ Page({
     });
 
   },
-
-
+  check_session() {
+    wx.redirectTo({
+      url: '/pages/home/entertainment_detail/entertainment_detail1'
+    })
+  },
+  
   getPhoneNumber: function(e) { //点击获取手机号码按钮
 
     var that = this;
@@ -228,9 +237,10 @@ Page({
 
   },
   onShow() {
-    console.log('显示')
-    this.wxlogin()
-    console.log('显示')
+    const myLoveStar = this.data.myLoveStar + 1
+    this.setData({
+      myLoveStar: myLoveStar
+    })
   },
 
   checklogin: function(e) {

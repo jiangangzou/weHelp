@@ -1,8 +1,8 @@
 
 
 <home wx:if="{{(PageCur=='home') && (!canIUse)}}"></home>
-<!-- <service wx:if="{{PageCur=='service'}}"></service> -->
-<!-- <message wx:if="{{PageCur=='message'}}"></message> -->
+<service wx:if="{{PageCur=='service'}}"></service>
+<message wx:if="{{PageCur=='message'}}"></message>
 <users wx:if="{{PageCur=='users'}}"></users>
 
 <view class="cu-bar tabbar bg-white foot" wx:if="{{!canIUse}}">
@@ -13,11 +13,11 @@
     </view>
   </view>
 
-  <!-- <view class="action" bindtap="NavChange" data-cur="service">
+  <view class="action" bindtap="NavChange" data-cur="service">
     <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
-      <view class="iconfont Icon-school"></view> 校园发布
+      <view class="iconfont Icon-school"></view> 积分商城
     </view>
-  </view> -->
+  </view>
 
 
 
@@ -45,11 +45,11 @@
 </view>
   <!-- </view> -->
 
-    <!-- <view class="action" bindtap="NavChange" data-cur="message">
+    <view class="action" bindtap="NavChange" data-cur="message">
       <view class="{{PageCur=='message'?'text-green':'text-gray'}}">
-        <view class="cuIcon-similar"></view> 校园服务
+        <view class="cuIcon-similar"></view> 消息
     </view>
-  </view> -->
+  </view>
 
 
   <view class="action" bindtap="NavChange" data-cur="users">
@@ -74,10 +74,25 @@
   
       <view class='contentText'>获得你的公开信息(昵称,头像,手机等)</view>
   
-      <button class='authBtn' type='primary' open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>授权登录</button>
+      <button class='authBtn' type='primary' open-type='getUserInfo' bindgetuserinfo='wxlogin'>授权登录</button>
   
     </view>
   
   </view>
-  
-  <view wx:else>请升级微信版本</view>
+
+  <view  class="cu-modal {{modalNameRadio1=='RadioModal'?'show':''}}" bindtap="hideModalRadio1">
+    <view class="cu-dialog" >
+      <radio-group class="block" bindchange="RadioChange">
+        <view class="cu-list menu text-left">
+          <view class="text-center location-list-title bg-origin" style="line-height: 180rpx;">请选择您的位置</view>
+          <view class="cu-item" wx:for="{{locationList}}" :key="index">
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">{{item}}</view>
+              <radio class="round" class="{{radio=='radio' + index?'checked':''}}" checked="{{radio=='radio' + index?true:false}}"
+               value="{{'radio' + index}}"></radio>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+    </view>
+  </view>

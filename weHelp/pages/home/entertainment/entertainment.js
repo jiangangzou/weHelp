@@ -74,7 +74,22 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let entertainment = {}
+    entertainment.title = app.globalData.formData.taskTitle
+    entertainment.imglink = 'https://7868-xhsysubb-zdxh-1259645612.tcb.qcloud.la/shangjia/img/logo.jpg?sign=ac38cd09be1f8a47b232fa63558c6e99&t=1568121229'
+    entertainment.content = app.globalData.formData.taskContent
+    entertainment.taskTime = app.globalData.formData.taskTime
+    entertainment.taskDate = app.globalData.formData.taskDate
+    entertainment.taskDuration = app.globalData.formData.taskDuration
+    entertainment.taskPrice = app.globalData.formData.taskPrice
+    entertainment.urlLink= '/pages/home/entertainment_detail/entertainment_detail0'
+    entertainment.tag0 = '生活帮'
+    let entertainmentResult = this.data.entertainment_List
+    entertainmentResult.unshift(entertainment)
+    console.log(entertainmentResult,'entertainmentResult')
+    this.setData({
+      entertainment_List: entertainmentResult
+    })
   },
   previewImage: function (e) {
     var current = e.target.dataset.src;

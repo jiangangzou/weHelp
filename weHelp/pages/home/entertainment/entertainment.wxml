@@ -1,18 +1,19 @@
 <!--pages/home/entertainment/entertainment.wxml-->
-<swiper class="screen-swiper2 square-dot  shadow  fixed" indicator-dots="true"    style="top:{{CustomBar}}px;"
+<!-- <swiper class="screen-swiper2 square-dot  shadow  fixed" indicator-dots="true"    style="top:{{CustomBar}}px;"
  circular="true" autoplay="true" interval="5000" duration="500"  indicator-active-color="#fec432">
     <swiper-item wx:for="{{swiperList}}" wx:key>
         <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
         <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
     </swiper-item>
-</swiper>
-<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+</swiper> -->
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}" style="padding-top: 50rpx;">
  <view wx:for="{{entertainment_List}}" wx:key class="">
  <navigator url="{{item.urlLink}}" hover-class="navigator-hover">
 <view class="cu-card article">
     <view class="cu-item shadow">
-        <view class="title">
+        <view class="title" style="display: flex;justify-content: space-between;">
             <view class="text-cut">{{item.title}}</view>
+            <view class="isHaveMoney text-cyan">{{item.taskPrice >0 ? '有偿':'献爱心'}}</view>
         </view>
         <view class="content">
             <image src='{{item.imglink}}' mode="aspectFill"></image>
@@ -21,7 +22,7 @@
                         {{item.content}}
                 </view>
                 <view>
-                    <view class="cu-tag bg-red light sm round">{{item.tag0}}</view>
+                    <view class="cu-tag bg-red light sm round">生活帮</view>
                     <view class="cu-tag bg-green light sm round">{{item.tag1}}</view>
                 </view>
             </view>

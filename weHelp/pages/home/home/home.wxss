@@ -39,4 +39,14 @@
 .time-line {
   position: absolute;
   top: 25%;
+  font-size: 24rpx;
+}
+
+.time-line1 {
+  position: absolute;
+  top: 58%;
+  font-size: 24rpx;
+}
+.task-begin {
+  color: #aaaaaa
 }

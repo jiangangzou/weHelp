@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "home": "/pages/home/home/home",
-    "users": "/pages/users/home/home"
+    "users": "/pages/users/home/home",
+    "message": "/pages/message/home/home",
+    "service": "/pages/home/resources/resources"
+
   }
 }
